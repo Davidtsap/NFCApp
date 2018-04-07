@@ -1,1 +1,0 @@
-contains the UI project (will develops in android-studio)
