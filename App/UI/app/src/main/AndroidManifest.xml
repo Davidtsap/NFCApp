@@ -16,7 +16,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".NfcScanner"></activity>
+        <activity android:name=".NfcScanner" />
+        <activity android:name=".LoginRegister" />
+        <activity android:name=".StartupActivity" />
+        <activity android:name=".Shop" />
+        <activity android:name=".ConfiguringChipOperations" />
+        <activity android:name=".AddNewUserChip" />
+        <activity android:name=".ManageUserChips"></activity>
     </application>
 
 </manifest>
