@@ -1,5 +1,6 @@
 package com.app.sogal.ui;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -34,6 +35,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                 edEmail.setText("");
                 edPassword.setText("");
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
             }
             else {
                 Toast.makeText(this, "Please fill all fields", Toast.LENGTH_LONG).show();

@@ -1,5 +1,6 @@
 package com.app.sogal.ui;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Layout;
@@ -34,7 +35,7 @@ class MainStartupActivity extends AppCompatActivity implements View.OnClickListe
 
         if (view==btnLogin)
         {
-
+            startActivity(new Intent(getApplicationContext(), LoginActivity.class));
         }
         else if(view==btnRegister)
         {

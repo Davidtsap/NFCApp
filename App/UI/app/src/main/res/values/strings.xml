@@ -5,6 +5,5 @@
     <string name="welcome_to_smart_chip">Welcome to Smart Chip</string>
     <string name="password">Password</string>
     <string name="email">Email</string>
-    <string name="login">Login</string>
     <string name="exit">Exit</string>
 </resources>
