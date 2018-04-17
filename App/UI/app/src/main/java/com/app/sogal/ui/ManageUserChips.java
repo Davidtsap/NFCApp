@@ -19,8 +19,6 @@ public class ManageUserChips extends AppCompatActivity  implements View.OnClickL
 
     @Override
     public void onClick(View v) {
-        if(v == btnAddNewChip){
-            startActivity(new Intent(getApplicationContext(), AddNewUserChip.class));
-        }
+ 			startActivity(new Intent(getApplicationContext(), AddNewUserChip.class));        }
     }
 }
