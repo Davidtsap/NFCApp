@@ -20,7 +20,7 @@ public class ManageUserChips extends AppCompatActivity  implements View.OnClickL
     @Override
     public void onClick(View v) {
         if(v == btnAddNewChip){
-            startActivity(new Intent(getApplicationContext(), NfcScanner.class));
+            startActivity(new Intent(getApplicationContext(), WriteNfcTag.class));
         }
     }
 }

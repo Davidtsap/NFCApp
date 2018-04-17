@@ -43,7 +43,8 @@ public class NfcScanner extends Activity  {  //AppCompatActivity
 
     private void handleIntent(Intent intent) {
         // TODO: handle Intent
-        Toast.makeText(this, "NFC chip detected", Toast.LENGTH_LONG).show();
+        //Toast.makeText(this, "NFC chip detected", Toast.LENGTH_LONG).show();
+        startActivity(new Intent(getApplicationContext(), ReadNfcTag.class));
     }
 
     @Override
