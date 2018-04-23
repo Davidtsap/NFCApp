@@ -36,10 +36,10 @@
     <TextView
         android:id="@+id/textViewWelcome"
         style="@style/Widget.AppCompat.TextView.SpinnerItem"
-        android:layout_width="208dp"
-        android:layout_height="90dp"
+        android:layout_width="233dp"
+        android:layout_height="88dp"
         android:gravity="top|center_horizontal"
-        android:text="@string/welcome_to_smart_chip"
+        android:text="Smart Chip make it simple"
         android:textIsSelectable="false"
         android:textSize="30sp"
         android:textStyle="bold"

@@ -32,10 +32,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View view) {
-        if(view == btnLogIn) {
-
-            if (edEmail.getText().toString().length() > 0 && edPassword.getText().toString().length() > 0) {
-
+        if(view == btnLogIn)
+        {
+            if (edEmail.getText().toString().length() > 0 && edPassword.getText().toString().length() > 0)
+            {
+                if (!edEmail.getText().toString().contains("@") || (!edEmail.getText().toString().contains(".")))
+                {
+                    Toast.makeText(this, "Unvalid email", Toast.LENGTH_LONG).show();
+                }
                 edEmail.setText("");
                 edPassword.setText("");
                 startActivity(new Intent(getApplicationContext(), ManageUserChips.class));

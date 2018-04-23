@@ -8,20 +8,53 @@ import android.widget.Button;
 import com.app.sogal.R;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     Button btnManageUserChips;
+    Button btnShop;
+    Button btnManageUserAccount;
+    Button btnAbout;
+    Button btnContactUs;
+    Button btnLogOut;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btnManageUserChips = (Button)findViewById(R.id.btnManageUserChips);
+        btnManageUserChips = (Button) findViewById(R.id.btnManageUserChips);
         btnManageUserChips.setOnClickListener(this);
+
+        btnShop = (Button) findViewById(R.id.btnShop);
+        btnShop.setOnClickListener(this);
+
+        btnManageUserAccount = (Button) findViewById(R.id.btnManageUserAccount);
+        btnManageUserAccount.setOnClickListener(this);
+
+        btnAbout = (Button) findViewById(R.id.btnAbout);
+        btnAbout.setOnClickListener(this);
+
+        btnContactUs = (Button) findViewById(R.id.btnContactUs);
+        btnContactUs.setOnClickListener(this);
+
+        btnLogOut = (Button) findViewById(R.id.btnLogOut);
+        btnLogOut.setOnClickListener(this);
+
     }
 
     @Override
     public void onClick(View v) {
-        if(v == btnManageUserChips){
+        if (v == btnManageUserChips) {
             startActivity(new Intent(getApplicationContext(), ManageUserChips.class));
+        } else if (v == btnShop) {
+            startActivity(new Intent(getApplicationContext(), ShopActivity.class));
+        } else if (v == btnManageUserAccount) {
+            startActivity(new Intent(getApplicationContext(), ManageUserAccountActivity.class));
+        } else if (v == btnAbout) {
+            startActivity(new Intent(getApplicationContext(), AboutActivity.class));
+        } else if (v == btnContactUs) {
+            startActivity(new Intent(getApplicationContext(), ContactUsActivity.class));
+        } else if (v == btnLogOut) {
+            startActivity(new Intent(getApplicationContext(), MainStartupActivity.class));
         }
+
     }
 }

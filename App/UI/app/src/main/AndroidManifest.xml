@@ -19,6 +19,7 @@
         <activity android:name="com.app.sogal.ui.MainStartupActivity">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
+
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
@@ -29,6 +30,18 @@
 
                 <data android:mimeType="text/plain" />
             </intent-filter>
+
+            <meta-data
+                android:name="android.nfc.action.TECH_DISCOVERED"
+                android:resource="@xml/nfc_tech_filter" />
+        </activity>
+">            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+                <action android:name="android.nfc.action.TECH_DISCOVERED" />
+				<category android:name="android.intent.category.DEFAULT" />
+                                <data android:mimeType="text/plain" />
+            </intent-filter>
+
             <meta-data
                 android:name="android.nfc.action.TECH_DISCOVERED"
                 android:resource="@xml/nfc_tech_filter" />
@@ -37,33 +50,19 @@
         <activity android:name="com.app.sogal.ui.ConfiguringChipOperations" />
         <activity android:name="com.app.sogal.ui.AddNewUserChip" />
         <activity android:name="com.app.sogal.ui.ManageUserChips" />
-        <activity android:name="com.app.sogal.ui.ReadNfcTag">
-            <intent-filter>
-                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
-                <action android:name="android.nfc.action.TECH_DISCOVERED" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data android:mimeType="text/plain" />
-            </intent-filter>
-            <meta-data
-                android:name="android.nfc.action.TECH_DISCOVERED"
-                android:resource="@xml/nfc_tech_filter" />
-
-        </activity>
-
+        <activity android:name="com.app.sogal.ui.ReadNfcTag
         <activity android:name="com.app.sogal.ui.WriteNfcTag">
             <intent-filter>
                 <action android:name="android.nfc.action.NDEF_DISCOVERED" />
                 <action android:name="android.nfc.action.TECH_DISCOVERED" />
+
                 <data android:mimeType="text/plain" />
             </intent-filter>
+
             <meta-data
                 android:name="android.nfc.action.TECH_DISCOVERED"
                 android:resource="@xml/nfc_tech_filter" />
-
         </activity>
-        <activity android:name="com.app.sogal.ui.LoginActivity" />
-        <activity android:name="com.app.sogal.phone.CallToPhone" />
-
     </application>
 
 </manifest>
