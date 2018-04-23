@@ -18,7 +18,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import com.app.sogal.R;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
@@ -36,7 +36,7 @@ public class WriteNfcTag extends AppCompatActivity {
     Context context;
 
     TextView tvNFCContent;
-    String message ="Tal A Homo";
+    String message ="serial number";
     Button btnWrite;
 
     @Override

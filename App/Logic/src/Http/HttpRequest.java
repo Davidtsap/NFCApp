@@ -1,3 +1,4 @@
+package Http;
 
 import com.google.gson.Gson;
 import org.apache.http.HttpResponse;
@@ -16,8 +17,9 @@ import java.net.URISyntaxException;
 
 
 public class HttpRequest {
+    private String targetURL = "http://www.google.com";
 
-    public void  executePost(String targetURL, String urlParameters){
+    public void  executePost(String urlParameters){
 
         try {
 
@@ -49,7 +51,7 @@ public class HttpRequest {
         }
     }
 
-    public void  executeGet(String targetURL, String urlParameters){
+    public void  executeGet(String urlParameters){
 
         try {
 

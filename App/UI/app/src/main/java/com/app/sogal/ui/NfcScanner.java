@@ -8,6 +8,10 @@ import android.nfc.NfcAdapter;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
+import com.app.sogal.R;
+
+
+
 
 public class NfcScanner extends Activity  {  //AppCompatActivity
 
@@ -15,7 +19,6 @@ public class NfcScanner extends Activity  {  //AppCompatActivity
     public static final String MIME_TEXT_PLAIN = "text/plain";
     private static final String TAG = "NFC";
     private PendingIntent nfcPendingIntent;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,13 +35,13 @@ public class NfcScanner extends Activity  {  //AppCompatActivity
 
     @Override
     protected void onNewIntent(Intent intent) {
-        Log.d(TAG, "onNewIntent");
+        Log.d(TAG, "on New Intent NFCScanner");
 
         // check for NFC related actions
-        if (NfcAdapter.ACTION_TAG_DISCOVERED.equals(intent.getAction())) {
-            handleIntent(intent);
-        }
-        setIntent(intent);
+       // if (NfcAdapter.ACTION_TAG_DISCOVERED.equals(intent.getAction())) {
+         //   handleIntent(intent);
+       // }
+        //setIntent(intent);
     }
 
     private void handleIntent(Intent intent) {

@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import com.app.sogal.R;
+
+//import Http.HttpRequest;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -35,7 +38,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                 edEmail.setText("");
                 edPassword.setText("");
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                startActivity(new Intent(getApplicationContext(), ManageUserChips.class));
             }
             else {
                 Toast.makeText(this, "Please fill all fields", Toast.LENGTH_LONG).show();

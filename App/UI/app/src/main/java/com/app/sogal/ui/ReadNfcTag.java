@@ -4,26 +4,25 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.nfc.FormatException;
 import android.nfc.NdefMessage;
-import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
 import android.nfc.Tag;
-import android.nfc.tech.Ndef;
 import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.io.IOException;
+import com.app.sogal.R;
+import com.app.sogal.phone.CallToPhone;
 import java.io.UnsupportedEncodingException;
+import java.lang.reflect.InvocationTargetException;
+
+import Http.HttpRequest;
+
 
 public class ReadNfcTag extends AppCompatActivity {
-
 
     public static final String ERROR_DETECTED = "No NFC tag detected!";
     public static final String WRITE_SUCCESS = "Text written to the NFC tag successfully!";
@@ -34,17 +33,16 @@ public class ReadNfcTag extends AppCompatActivity {
     boolean writeMode;
     Tag myTag;
     Context context;
+    HttpRequest http = new HttpRequest();
 
     TextView tvNFCContent;
     TextView message;
     Button btnWrite;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_read_nfc_tag);
         context = this;
-
 
         nfcAdapter = NfcAdapter.getDefaultAdapter(this);
         if (nfcAdapter == null) {
@@ -52,12 +50,12 @@ public class ReadNfcTag extends AppCompatActivity {
             Toast.makeText(this, "This device doesn't support NFC.", Toast.LENGTH_LONG).show();
             finish();
         }
-        readFromIntent(getIntent());
-
+        //readFromIntent(getIntent());
+        onNewIntent(getIntent());
         pendingIntent = PendingIntent.getActivity(this, 0, new Intent(this, getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0);
         IntentFilter tagDetected = new IntentFilter(NfcAdapter.ACTION_TAG_DISCOVERED);
         tagDetected.addCategory(Intent.CATEGORY_DEFAULT);
-        writeTagFilters = new IntentFilter[] { tagDetected };
+        writeTagFilters = new IntentFilter[]{tagDetected};
     }
 
 
@@ -80,6 +78,7 @@ public class ReadNfcTag extends AppCompatActivity {
             buildTagViews(msgs);
         }
     }
+
     private void buildTagViews(NdefMessage[] msgs) {
         if (msgs == null || msgs.length == 0) return;
 
@@ -100,12 +99,20 @@ public class ReadNfcTag extends AppCompatActivity {
     }
 
 
-
     @Override
     protected void onNewIntent(Intent intent) {
         setIntent(intent);
         readFromIntent(intent);
-        if(NfcAdapter.ACTION_TAG_DISCOVERED.equals(intent.getAction())){
+        http.executeGet("getAction&1");
+        String str = "CallToPhone";
+
+        //try{
+        try {
+            startActivity(new Intent(getApplicationContext(), Class.forName("com.app.sogal.phone." + str)));
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        if (NfcAdapter.ACTION_TAG_DISCOVERED.equals(intent.getAction())) {
             myTag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
         }
     }

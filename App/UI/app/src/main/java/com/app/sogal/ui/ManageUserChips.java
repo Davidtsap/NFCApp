@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
+import com.app.sogal.R;
 public class ManageUserChips extends AppCompatActivity  implements View.OnClickListener {
     Button btnAddNewChip;
 
@@ -21,4 +21,4 @@ public class ManageUserChips extends AppCompatActivity  implements View.OnClickL
     public void onClick(View v) {
  			startActivity(new Intent(getApplicationContext(), AddNewUserChip.class));        }
     }
-}
+

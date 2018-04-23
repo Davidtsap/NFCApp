@@ -6,6 +6,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+
+import com.app.sogal.R;
+
+
 public class AddNewUserChip extends AppCompatActivity implements View.OnClickListener {
     Button btnScanNewChip;
     Button btnSetChipName;
@@ -27,9 +31,10 @@ public class AddNewUserChip extends AppCompatActivity implements View.OnClickLis
 
     @Override
     public void onClick(View v) {
+
         if (v == btnScanNewChip)
         {
-            startActivity(new Intent(getApplicationContext(), NfcScanner.class));
+            startActivity(new Intent(getApplicationContext(), WriteNfcTag.class));
         }
         else if(v == btnSetChipName)
         {

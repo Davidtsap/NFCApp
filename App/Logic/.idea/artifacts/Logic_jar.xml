@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact name="Logic:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Logic_jar</output-path>
+    <root id="root">
+      <element id="archive" name="Logic.jar">
+        <element id="module-output" name="Logic" />
+      </element>
+      <element id="library" level="project" name="commons-codec-1.9" />
+      <element id="library" level="project" name="com.google.code.gson:gson:2.8.2" />
+    </root>
+  </artifact>
+</component>
