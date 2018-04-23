@@ -17,7 +17,7 @@ import java.net.URISyntaxException;
 
 
 public class HttpRequest {
-    private String targetURL = "http://www.google.com";
+    private String targetURL = "http://www.google.com/";
 
     public void  executePost(String urlParameters){
 
@@ -55,7 +55,7 @@ public class HttpRequest {
 
         try {
 
-            URIBuilder builder = new URIBuilder(targetURL);// put in your url
+            URIBuilder builder = new URIBuilder(targetURL + urlParameters);// put in your url
             Gson gson = new Gson();
             builder.addParameter("parma1",urlParameters);
             HttpClient httpClient = HttpClientBuilder.create().build();

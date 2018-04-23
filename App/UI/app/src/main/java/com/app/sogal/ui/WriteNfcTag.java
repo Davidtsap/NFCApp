@@ -22,6 +22,8 @@ import com.app.sogal.R;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
+import Http.HttpRequest;
+
 public class WriteNfcTag extends AppCompatActivity {
 
 
@@ -38,6 +40,9 @@ public class WriteNfcTag extends AppCompatActivity {
     TextView tvNFCContent;
     String message ="serial number";
     Button btnWrite;
+
+    HttpRequest http = new HttpRequest();
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -121,6 +126,7 @@ public class WriteNfcTag extends AppCompatActivity {
     @Override
     protected void onNewIntent(Intent intent) {
         setIntent(intent);
+        //http.executeGet("GetNewID");
         if(NfcAdapter.ACTION_TAG_DISCOVERED.equals(intent.getAction())){
             myTag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
         }
@@ -138,6 +144,7 @@ public class WriteNfcTag extends AppCompatActivity {
             Toast.makeText(context, WRITE_ERROR, Toast.LENGTH_LONG ).show();
             e.printStackTrace();
         }
+        finish();
     }
 
     @Override

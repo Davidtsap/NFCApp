@@ -119,35 +119,4 @@ public class ReadNfcTag extends AppCompatActivity {
             myTag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
         }
     }
-
-
-
-    @Override
-    public void onPause(){
-        super.onPause();
-        WriteModeOff();
-    }
-
-    @Override
-    public void onResume(){
-        super.onResume();
-        WriteModeOn();
-    }
-
-
-    /******************************************************************************
-     **********************************Enable Write********************************
-     ******************************************************************************/
-    private void WriteModeOn(){
-        writeMode = true;
-        nfcAdapter.enableForegroundDispatch(this, pendingIntent, writeTagFilters, null);
-    }
-    /******************************************************************************
-     **********************************Disable Write*******************************
-     ******************************************************************************/
-    private void WriteModeOff(){
-        writeMode = false;
-        nfcAdapter.disableForegroundDispatch(this);
-    }
-
 }
