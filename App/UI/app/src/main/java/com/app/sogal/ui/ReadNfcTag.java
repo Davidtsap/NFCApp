@@ -7,7 +7,9 @@ import android.content.IntentFilter;
 import android.nfc.NdefMessage;
 import android.nfc.NfcAdapter;
 import android.nfc.Tag;
+import android.os.Build;
 import android.os.Parcelable;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -38,6 +40,7 @@ public class ReadNfcTag extends AppCompatActivity {
     TextView tvNFCContent;
     TextView message;
     Button btnWrite;
+    @RequiresApi(api = Build.VERSION_CODES.GINGERBREAD_MR1)
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -103,7 +106,7 @@ public class ReadNfcTag extends AppCompatActivity {
     protected void onNewIntent(Intent intent) {
         setIntent(intent);
         readFromIntent(intent);
-        http.executeGet("getAction&1");
+        //http.executeGet("getAction&1");
         String str = "CallToPhone";
 
         //try{

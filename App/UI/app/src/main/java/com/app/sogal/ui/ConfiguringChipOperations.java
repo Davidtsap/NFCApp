@@ -5,10 +5,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView
+import android.widget.TextView;
 import com.app.sogal.R;
 
- class ConfiguringChipOperations extends AppCompatActivity implements View.OnClickListener {
+public  class ConfiguringChipOperations extends AppCompatActivity implements View.OnClickListener {
+
     Button btnPhoneMode;
     Button btnSettingUpTasks;
     Button btnAccessibility;

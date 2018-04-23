@@ -10,6 +10,7 @@ import android.widget.Button;
 import java.time.Instant;
 
 import com.app.sogal.R;
+    public class MainStartupActivity extends AppCompatActivity implements View.OnClickListener{
     Button btnLogin;
     Button btnRegister;
     Button btnExit;

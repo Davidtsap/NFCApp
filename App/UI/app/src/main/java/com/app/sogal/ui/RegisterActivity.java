@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import com.app.sogal.R;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
     Button btnSignUp;

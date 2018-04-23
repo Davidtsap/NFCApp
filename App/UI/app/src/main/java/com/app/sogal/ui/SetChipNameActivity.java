@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.app.sogal.R;
 
 public class SetChipNameActivity extends AppCompatActivity implements View.OnClickListener {
     TextView tvUserName;

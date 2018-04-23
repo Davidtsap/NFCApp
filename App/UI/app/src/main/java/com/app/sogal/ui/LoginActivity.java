@@ -42,7 +42,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 }
                 edEmail.setText("");
                 edPassword.setText("");
-                startActivity(new Intent(getApplicationContext(), ManageUserChips.class));
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
             }
             else {
                 Toast.makeText(this, "Please fill all fields", Toast.LENGTH_LONG).show();

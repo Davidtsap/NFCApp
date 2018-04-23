@@ -8,8 +8,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.app.sogal.R;
 
 public class ManageUserAccountActivity extends AppCompatActivity implements View.OnClickListener {
+
     TextView tvUserName;
     ImageView imvUserPic;
     EditText edtUserName2;

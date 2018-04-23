@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.app.sogal.R;
 
 public class ShopActivity extends AppCompatActivity {
     Button btnUserBag;
