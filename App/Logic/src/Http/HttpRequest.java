@@ -19,7 +19,7 @@ import java.net.URISyntaxException;
 public class HttpRequest {
     private String targetURL = "http://www.google.com/";
 
-    public void  executePost(String urlParameters){
+    public void  executePost(String urlParameters,Gson data){
 
         try {
 
@@ -51,7 +51,7 @@ public class HttpRequest {
         }
     }
 
-    public void  executeGet(String urlParameters){
+    public void  executeGet(String urlParameters,String [] arv){
 
         try {
 
