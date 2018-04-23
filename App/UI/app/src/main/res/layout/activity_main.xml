@@ -8,7 +8,7 @@
 
     <Button
         android:id="@+id/btnManageUserChips"
-        android:layout_width="wrap_content"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:text="Manage my chips"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -17,4 +17,74 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.192" />
+
+    <TextView
+        android:id="@+id/tvSmartChip"
+        android:layout_width="186dp"
+        android:layout_height="58dp"
+        android:width="@android:dimen/notification_large_icon_height"
+        android:text="Smart Chip"
+        android:textColor="?android:attr/textColorHint"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/btnManageUserChips"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnShop"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:text="Shop"
+        app:layout_constraintBottom_toTopOf="@+id/btnManageUserAccount"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnManageUserChips" />
+
+    <Button
+        android:id="@+id/btnManageUserAccount"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:text="My Account"
+        app:layout_constraintBottom_toTopOf="@+id/btnAbout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnShop" />
+
+    <Button
+        android:id="@+id/btnAbout"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:text="About"
+        app:layout_constraintBottom_toTopOf="@+id/btnContactUs"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnManageUserAccount" />
+
+    <Button
+        android:id="@+id/btnContactUs"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:text="Contact Us"
+        app:layout_constraintBottom_toTopOf="@+id/btnLogOut"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAbout" />
+
+    <Button
+        android:id="@+id/btnLogOut"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:text="Log out"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnContactUs" />
 </android.support.constraint.ConstraintLayout>

@@ -10,7 +10,7 @@ import android.widget.Button;
 import java.time.Instant;
 
 
-class MainStartupActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainStartupActivity extends AppCompatActivity implements View.OnClickListener {
     Button btnLogin;
     Button btnRegister;
     Button btnExit;
@@ -24,20 +24,20 @@ class MainStartupActivity extends AppCompatActivity implements View.OnClickListe
         btnRegister = (Button)findViewById(R.id.btnRgister);
         btnExit = (Button)findViewById(R.id.btnExit);
         btnLogin.setOnClickListener(this);
+        btnRegister.setOnClickListener(this);
+        btnExit.setOnClickListener(this);
     }
 
-    public void buttonExit_onClick(View view)
-    {
-
-    }
-    @Override
-    public void onClick(View view) {
-
-        if (view==btnLogin)
+    public void onClick(View v) {
+        if (v == btnLogin)
         {
             startActivity(new Intent(getApplicationContext(), LoginActivity.class));
         }
-        else if(view==btnRegister)
+        else if(v == btnRegister)
+        {
+            startActivity(new Intent(getApplicationContext(), RegisterActivity.class));
+        }
+        else  if(v == btnExit)
         {
 
         }

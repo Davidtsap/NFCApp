@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddNewUserChip">
+    tools:context=".SetChipNameActivity">
 
     <TextView
-        android:id="@+id/tvUserName6"
+        android:id="@+id/tvUserName5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="User Name"
@@ -18,66 +18,54 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.178" />
 
-    <Button
-        android:id="@+id/btnScanNewChip"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:text="Scan a new chip"
-        app:layout_constraintBottom_toTopOf="@+id/btnSetChipName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imvUserPic6" />
-
-    <ImageView
-        android:id="@+id/imvUserPic6"
+    <TextView
+        android:id="@+id/tvSetChipName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/tvUserName6"
+        android:text="Set Chip Name:"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.296" />
+
+    <ImageView
+        android:id="@+id/imvUserPic4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.086"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.036"
         app:srcCompat="@mipmap/ic_launcher"
         tools:ignore="MissingConstraints" />
 
-    <Button
-        android:id="@+id/btnSetChipName"
-        android:layout_width="200dp"
+    <EditText
+        android:id="@+id/edtChipName"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Set chip name"
-        app:layout_constraintBottom_toTopOf="@+id/btnSetChipOp"
+        android:ems="10"
+        android:hint="Chip Name"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnScanNewChip" />
+        app:layout_constraintTop_toBottomOf="@+id/tvSetChipName"
+        app:layout_constraintVertical_bias="0.198" />
 
     <Button
-        android:id="@+id/btnSetChipOp"
-        android:layout_width="200dp"
+        android:id="@+id/btnSave"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Set chip operations"
+        android:text="Save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnSetChipName" />
+        app:layout_constraintTop_toBottomOf="@+id/edtChipName" />
 
-    <android.support.constraint.Group
-        android:id="@+id/group"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <android.support.constraint.Group
-        android:id="@+id/group2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="20dp" />
 </android.support.constraint.ConstraintLayout>
