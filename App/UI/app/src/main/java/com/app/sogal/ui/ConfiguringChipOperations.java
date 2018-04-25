@@ -17,6 +17,7 @@ public  class ConfiguringChipOperations extends AppCompatActivity implements Vie
     TextView tvChipName;
     ImageView imvUserPic;
     TextView tvUserName;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

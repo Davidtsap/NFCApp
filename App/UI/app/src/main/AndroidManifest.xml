@@ -15,15 +15,15 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
-        <activity android:name="com.app.sogal.ui.MainStartupActivity">
+        android:theme="@style/AppTheme">
+        <activity android:name=".ui.MainStartupActivity">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
 
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-        <activity android:name="com.app.sogal.ui.NfcScanner">
+        <activity android:name=".ui.NfcScanner">
             <intent-filter>
                 <action android:name="android.nfc.action.NDEF_DISCOVERED" />
                 <action android:name="android.nfc.action.TECH_DISCOVERED" />
@@ -35,30 +35,33 @@
                 android:name="android.nfc.action.TECH_DISCOVERED"
                 android:resource="@xml/nfc_tech_filter" />
         </activity>
-        <activity android:name="com.app.sogal.ui.ReadNfcTag">
-">            <intent-filter>
+        <activity android:name=".ui.ReadNfcTag">
+            ">
+            <intent-filter>
                 <action android:name="android.nfc.action.NDEF_DISCOVERED" />
                 <action android:name="android.nfc.action.TECH_DISCOVERED" />
-				<category android:name="android.intent.category.DEFAULT" />
-                                <data android:mimeType="text/plain" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="text/plain" />
             </intent-filter>
 
             <meta-data
                 android:name="android.nfc.action.TECH_DISCOVERED"
                 android:resource="@xml/nfc_tech_filter" />
         </activity>
-        <activity android:name="com.app.sogal.ui.LoginActivity"/>
-        <activity android:name="com.app.sogal.ui.ShopActivity" />
-        <activity android:name="com.app.sogal.ui.ConfiguringChipOperations" />
-        <activity android:name="com.app.sogal.ui.AddNewUserChip" />
-        <activity android:name="com.app.sogal.ui.ManageUserChips" />
-        <activity android:name="com.app.sogal.ui.MainActivity"/>
-        <activity android:name="com.app.sogal.ui.SetChipNameActivity"/>
-        <activity android:name="com.app.sogal.ui.ManageUserAccountActivity"/>
-        <activity android:name="com.app.sogal.phone.CallToPhone"/>
-        <activity android:name="com.app.sogal.ui.AboutActivity"/>
-        <activity android:name="com.app.sogal.ui.ContactUsActivity"/>
-        <activity android:name="com.app.sogal.ui.WriteNfcTag">
+        <activity android:name=".ui.LoginActivity" />
+        <activity android:name=".ui.ShopActivity" />
+        <activity android:name=".ui.ConfiguringChipOperations" />
+        <activity android:name=".ui.AddNewUserChip" />
+        <activity android:name=".ui.ManageUserChips" />
+        <activity android:name=".ui.MainActivity" />
+        <activity android:name=".ui.SetChipNameActivity" />
+        <activity android:name=".ui.ManageUserAccountActivity" />
+        <activity android:name=".phone.CallToPhone" />
+        <activity android:name=".ui.AboutActivity" />
+        <activity android:name=".ui.ContactUsActivity" />
+        <activity android:name=".ui.WriteNfcTag">
             <intent-filter>
                 <action android:name="android.nfc.action.NDEF_DISCOVERED" />
                 <action android:name="android.nfc.action.TECH_DISCOVERED" />
@@ -70,6 +73,7 @@
                 android:name="android.nfc.action.TECH_DISCOVERED"
                 android:resource="@xml/nfc_tech_filter" />
         </activity>
+        <activity android:name=".ui.PhoneModeActivity"></activity>
     </application>
 
 </manifest>
