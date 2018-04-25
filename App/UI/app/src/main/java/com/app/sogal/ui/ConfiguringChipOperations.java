@@ -1,5 +1,6 @@
 package com.app.sogal.ui;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -44,7 +45,8 @@ public  class ConfiguringChipOperations extends AppCompatActivity implements Vie
     @Override
     public void onClick(View v) {
         if(v==btnPhoneMode){
-
+            // need to send to the next activity the s.number of the chip for update in the dataBase
+            startActivity(new Intent(getApplicationContext(), PhoneModeActivity.class));
         }
         else if(v==btnSettingUpTasks){
 

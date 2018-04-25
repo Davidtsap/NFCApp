@@ -1,5 +1,6 @@
 package com.app.sogal.ui;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -34,17 +35,20 @@ public class PhoneModeActivity extends AppCompatActivity implements View.OnClick
     public void onClick(View v) {
         if(v == btnSetSpeedDialing)
         {
+            // need to change this! no need to open a new chip. this should be the same chip from the last activity
             inChip.setAction("SpeedDialing");
             Gson gson = new Gson();
             gson.toJson(inChip);
-            //http.executePost("name Of Fuction" ,Gson gsonObj (gson.toJson(inChip)));
+            //http.executePost("name Of Function" ,Gson gsonObj (gson.toJson(inChip)));
+            startActivity(new Intent(getApplicationContext(), AddNewUserChip.class));
+
         }
         else if (v == btnSetAutomaticSms)
         {
             inChip.setAction("AutomaticSms");
             Gson gson = new Gson();
             gson.toJson(inChip);
-            //http.executePost("name Of Fuction" ,Gson gsonObj (gson.toJson(inChip)));
+            //http.executePost("name Of Function" ,Gson gsonObj (gson.toJson(inChip)));
         }
     }
 }

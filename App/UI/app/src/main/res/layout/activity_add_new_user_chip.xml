@@ -25,7 +25,6 @@
         android:text="Scan a new chip"
         app:layout_constraintBottom_toTopOf="@+id/btnSetChipName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imvUserPic6" />
 
@@ -49,7 +48,6 @@
         android:text="Set chip name"
         app:layout_constraintBottom_toTopOf="@+id/btnSetChipOp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnScanNewChip" />
 
@@ -58,7 +56,7 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="Set chip operations"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnFinish"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -80,4 +78,16 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_begin="20dp" />
+
+    <Button
+        android:id="@+id/btnFinish"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Finish"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintStart_toEndOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/btnSetChipOp"
+        app:layout_constraintVertical_bias="0.272" />
 </android.support.constraint.ConstraintLayout>
