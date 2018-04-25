@@ -23,11 +23,11 @@ public class HttpRequest {
 
         try {
 
-            String postUrl = targetURL;// put in your url
+            String postUrl = targetURL  + urlParameters;// put in your url
             Gson gson = new Gson();
             HttpClient httpClient = HttpClientBuilder.create().build();
             HttpPost post = new HttpPost(postUrl);
-            StringEntity postingString = new StringEntity(gson.toJson(urlParameters));//gson.tojson() converts your pojo to json
+            StringEntity postingString = new StringEntity(data.toString());//gson.tojson() converts your pojo to json
             post.setEntity(postingString);
             post.setHeader("Content-type", "application/json");
             HttpResponse  response = httpClient.execute(post);
@@ -57,7 +57,10 @@ public class HttpRequest {
 
             URIBuilder builder = new URIBuilder(targetURL + urlParameters);// put in your url
             Gson gson = new Gson();
-            builder.addParameter("parma1",urlParameters);
+            for (int i =0 ; i<arv.length;i++)
+            {
+                builder.addParameter("parma" + i,arv[i]);
+            }
             HttpClient httpClient = HttpClientBuilder.create().build();
             HttpGet get = new HttpGet(String.valueOf(builder));
             get.setHeader("Content-type", "application/json");

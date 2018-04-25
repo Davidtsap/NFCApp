@@ -8,12 +8,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import com.app.sogal.R;
 
+import Data.User;
+
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
     Button btnSignUp;
     EditText edtUserName;
     EditText edtPassword;
     EditText edtEmail;
     EditText edtPhone;
+    User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

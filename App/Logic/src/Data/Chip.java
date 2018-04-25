@@ -4,6 +4,14 @@ public class Chip {
 
     String serialNumber;
     String action;
+    String chipName;
+    public void setChipName(String chipName)
+    {
+        this.chipName = chipName;
+    }
+    public String getChipName(){
+        return chipName;
+    }
     public void setSerialNumber(String serialNumber){
         this.serialNumber =serialNumber;
     }
