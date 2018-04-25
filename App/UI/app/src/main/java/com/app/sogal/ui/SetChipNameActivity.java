@@ -9,12 +9,19 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.app.sogal.R;
+import com.google.gson.Gson;
+
+import Data.Chip;
+import Http.HttpRequest;
 
 public class SetChipNameActivity extends AppCompatActivity implements View.OnClickListener {
     TextView tvUserName;
     ImageView imvUserPic;
     EditText edtChipName;
     Button btnSave;
+    HttpRequest http = new HttpRequest();
+    Chip inChip;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +41,10 @@ public class SetChipNameActivity extends AppCompatActivity implements View.OnCli
     @Override
     public void onClick(View v) {
         if(v==btnSave){
+            
+            Gson gson = new Gson();
+            gson.toJson(inChip);
+            //http.executePost("name Of Fuction" ,Gson gsonObj (gson.toJson(inChip)));
             startActivity(new Intent(getApplicationContext(), AddNewUserChip.class));
         }
     }

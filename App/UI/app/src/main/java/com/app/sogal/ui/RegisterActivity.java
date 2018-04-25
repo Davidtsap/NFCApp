@@ -7,6 +7,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import com.app.sogal.R;
+import com.google.gson.Gson;
+
+import Data.User;
+import Http.HttpRequest;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
     Button btnSignUp;
@@ -14,6 +18,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     EditText edtPassword;
     EditText edtEmail;
     EditText edtPhone;
+    User inputUser;
+    HttpRequest http = new HttpRequest();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +40,13 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         if (v==btnSignUp)
         {
+            inputUser.setUserName(edtUserName.getText().toString());
+            inputUser.setPassword(edtPassword.getText().toString());
+            inputUser.seteMail(edtEmail.getText().toString());
+            inputUser.setPhone(edtPhone.getText().toString());
+            Gson gson = new Gson();
+            gson.toJson(inputUser);
+            //http.executePost("name Of Fuction" ,Gson gsonObj (gson.toJson(inputUser)));
             startActivity(new Intent(getApplicationContext(), MainActivity.class));
         }
     }
