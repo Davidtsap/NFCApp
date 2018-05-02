@@ -1,0 +1,7 @@
+C:\Users\טל מזרחי\documents\visual studio 2017\Projects\DB_Lib4\DB_Lib4\bin\Debug\DB_Lib4.dll
+C:\Users\טל מזרחי\documents\visual studio 2017\Projects\DB_Lib4\DB_Lib4\bin\Debug\DB_Lib4.pdb
+C:\Users\טל מזרחי\documents\visual studio 2017\Projects\DB_Lib4\DB_Lib4\bin\Debug\MySql.Data.dll
+C:\Users\טל מזרחי\documents\visual studio 2017\Projects\DB_Lib4\DB_Lib4\bin\Debug\MySql.Data.xml
+C:\Users\טל מזרחי\documents\visual studio 2017\Projects\DB_Lib4\DB_Lib4\obj\Debug\SmartChipDatabaseLib.csprojResolveAssemblyReference.cache
+C:\Users\טל מזרחי\documents\visual studio 2017\Projects\DB_Lib4\DB_Lib4\obj\Debug\DB_Lib4.dll
+C:\Users\טל מזרחי\documents\visual studio 2017\Projects\DB_Lib4\DB_Lib4\obj\Debug\DB_Lib4.pdb

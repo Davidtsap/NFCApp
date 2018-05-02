@@ -1,0 +1,79 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartChipConsoleHost", "SmartChipConsoleHost\SmartChipConsoleHost.csproj", "{F1F9AB7E-7C16-4825-9C42-C81A28BC181D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartChipServicesLib", "SmartChipServicesLib\SmartChipServicesLib.csproj", "{240717C9-AB22-41CF-BE97-FA7BD6A1E5FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartChipContractsLib", "SmartChipContractsLib\SmartChipContractsLib.csproj", "{78958E22-CB53-46A6-B470-2DB1361A8B8B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartChipDatabaseLib", "SmartChipDatabaseLib\SmartChipDatabaseLib.csproj", "{01996F84-43D3-4EFB-BFE3-0538B554898C}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "SmartChipIISHost", "..\..\..\WebSites\SmartChipIISHost\", "{E963F444-2C44-4D08-BAC9-D86C38A3F4C8}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_63707"
+		Debug.AspNetCompiler.PhysicalPath = "..\..\..\WebSites\SmartChipIISHost\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_63707\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_63707"
+		Release.AspNetCompiler.PhysicalPath = "..\..\..\WebSites\SmartChipIISHost\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_63707\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "63707"
+		SlnRelativePath = "..\..\..\WebSites\SmartChipIISHost\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{B77D25FD-87F5-413F-B367-40E3387B58CF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Host", "Host", "{64890577-EEB5-46AD-AA90-6364FA42BC5C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{E7EE0E80-51EE-42A4-A8A9-E7C19BF64183}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F1F9AB7E-7C16-4825-9C42-C81A28BC181D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1F9AB7E-7C16-4825-9C42-C81A28BC181D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1F9AB7E-7C16-4825-9C42-C81A28BC181D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1F9AB7E-7C16-4825-9C42-C81A28BC181D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{240717C9-AB22-41CF-BE97-FA7BD6A1E5FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{240717C9-AB22-41CF-BE97-FA7BD6A1E5FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{240717C9-AB22-41CF-BE97-FA7BD6A1E5FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{240717C9-AB22-41CF-BE97-FA7BD6A1E5FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78958E22-CB53-46A6-B470-2DB1361A8B8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78958E22-CB53-46A6-B470-2DB1361A8B8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78958E22-CB53-46A6-B470-2DB1361A8B8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78958E22-CB53-46A6-B470-2DB1361A8B8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01996F84-43D3-4EFB-BFE3-0538B554898C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01996F84-43D3-4EFB-BFE3-0538B554898C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01996F84-43D3-4EFB-BFE3-0538B554898C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01996F84-43D3-4EFB-BFE3-0538B554898C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E963F444-2C44-4D08-BAC9-D86C38A3F4C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E963F444-2C44-4D08-BAC9-D86C38A3F4C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E963F444-2C44-4D08-BAC9-D86C38A3F4C8}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{E963F444-2C44-4D08-BAC9-D86C38A3F4C8}.Release|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F1F9AB7E-7C16-4825-9C42-C81A28BC181D} = {64890577-EEB5-46AD-AA90-6364FA42BC5C}
+		{240717C9-AB22-41CF-BE97-FA7BD6A1E5FA} = {E7EE0E80-51EE-42A4-A8A9-E7C19BF64183}
+		{78958E22-CB53-46A6-B470-2DB1361A8B8B} = {E7EE0E80-51EE-42A4-A8A9-E7C19BF64183}
+		{01996F84-43D3-4EFB-BFE3-0538B554898C} = {B77D25FD-87F5-413F-B367-40E3387B58CF}
+		{E963F444-2C44-4D08-BAC9-D86C38A3F4C8} = {64890577-EEB5-46AD-AA90-6364FA42BC5C}
+	EndGlobalSection
+EndGlobal

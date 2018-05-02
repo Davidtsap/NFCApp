@@ -1,0 +1,5 @@
+C:\Users\טל מזרחי\documents\visual studio 2017\Projects\DB_Lib4\SmartChipContractsLib\bin\Debug\SmartChipContractsLib.dll
+C:\Users\טל מזרחי\documents\visual studio 2017\Projects\DB_Lib4\SmartChipContractsLib\bin\Debug\SmartChipContractsLib.pdb
+C:\Users\טל מזרחי\documents\visual studio 2017\Projects\DB_Lib4\SmartChipContractsLib\obj\Debug\SmartChipContractsLib.csprojResolveAssemblyReference.cache
+C:\Users\טל מזרחי\documents\visual studio 2017\Projects\DB_Lib4\SmartChipContractsLib\obj\Debug\SmartChipContractsLib.dll
+C:\Users\טל מזרחי\documents\visual studio 2017\Projects\DB_Lib4\SmartChipContractsLib\obj\Debug\SmartChipContractsLib.pdb
