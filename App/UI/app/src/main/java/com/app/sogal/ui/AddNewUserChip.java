@@ -17,6 +17,7 @@ public class AddNewUserChip extends AppCompatActivity implements View.OnClickLis
     Button btnScanNewChip;
     Button btnSetChipName;
     Button btnSetChipOp;
+    Button btnFinish;
     TextView tvUserName;
     ImageView imvUserPic;
 
@@ -38,11 +39,13 @@ public class AddNewUserChip extends AppCompatActivity implements View.OnClickLis
         btnSetChipOp = (Button)findViewById(R.id.btnSetChipOp);
         btnSetChipOp.setOnClickListener(this);
 
+        btnFinish = (Button)findViewById(R.id.btnFinish);
+        btnFinish.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-
+        // need to check how we send to the next activity the s.number of this specific chip
         if (v == btnScanNewChip)
         {
             startActivity(new Intent(getApplicationContext(), WriteNfcTag.class));
@@ -54,6 +57,10 @@ public class AddNewUserChip extends AppCompatActivity implements View.OnClickLis
         else if (v == btnSetChipOp)
         {
             startActivity(new Intent(getApplicationContext(), ConfiguringChipOperations.class));
+        }
+        else if (v == btnFinish) // need to check how to make this button unlink until all the steps before done
+        {
+            startActivity(new Intent(getApplicationContext(), MainActivity.class));
         }
     }
 }

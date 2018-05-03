@@ -40,12 +40,13 @@ public class SetChipNameActivity extends AppCompatActivity implements View.OnCli
 
     @Override
     public void onClick(View v) {
-        if(v==btnSave){
-            
+        if((v==btnSave) && (edtChipName.getText().toString().length()>0)){
+            inChip.setChipName(edtChipName.getText().toString());
             Gson gson = new Gson();
             gson.toJson(inChip);
             //http.executePost("name Of Fuction" ,Gson gsonObj (gson.toJson(inChip)));
             startActivity(new Intent(getApplicationContext(), AddNewUserChip.class));
         }
+        
     }
 }
