@@ -108,7 +108,6 @@ public class ReadNfcTag extends AppCompatActivity {
         readFromIntent(intent);
         //http.executeGet("getAction&1");
         String str = "CallToPhone";
-
         //try{
         try {
             startActivity(new Intent(getApplicationContext(), Class.forName("com.app.sogal.phone." + str)));

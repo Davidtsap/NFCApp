@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
+import android.widget.Toast;
 
 
 /**
@@ -32,7 +33,7 @@ public class CallToPhone extends Activity {
             //                                          int[] grantResults)
             // to handle the case where the user grants the permission. See the documentation
             // for ActivityCompat#requestPermissions for more details.
-           //Toast.makeText(this, "need premissions", Toast.LENGTH_LONG).show();
+           Toast.makeText(this, "need premissions", Toast.LENGTH_LONG).show();
 
             return;
         }
