@@ -4,32 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/about"
     tools:context=".RegisterActivity">
-
-    <TextView
-        android:id="@+id/tvSmartChip"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Smart Chip"
-        tools:layout_editor_absoluteX="47dp"
-        tools:layout_editor_absoluteY="40dp" />
-
-    <TextView
-        android:id="@+id/tvRegistration"
-        style="@android:style/Widget.TextView.SpinnerItem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fadingEdge="horizontal"
-        android:fontFamily="serif"
-        android:text="Registration:"
-        android:textStyle="bold|italic"
-        android:typeface="sans"
-        app:layout_constraintBottom_toTopOf="@+id/edtUserName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.76"
-        app:layout_optimizationLevel="none" />
 
     <EditText
         android:id="@+id/edtUserName"
@@ -38,8 +14,10 @@
         android:ems="10"
         android:hint="User Name"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="84dp"
-        tools:layout_editor_absoluteY="118dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="241dp" />
 
     <EditText
         android:id="@+id/edtPassword"
@@ -48,8 +26,10 @@
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
-        tools:layout_editor_absoluteX="84dp"
-        tools:layout_editor_absoluteY="176dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="301dp" />
 
     <EditText
         android:id="@+id/edtEmail"
@@ -58,8 +38,10 @@
         android:ems="10"
         android:hint="Email"
         android:inputType="textEmailAddress"
-        tools:layout_editor_absoluteX="84dp"
-        tools:layout_editor_absoluteY="231dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="363dp" />
 
     <EditText
         android:id="@+id/edtPhone"
@@ -68,14 +50,18 @@
         android:ems="10"
         android:hint="Phone"
         android:inputType="phone"
-        tools:layout_editor_absoluteX="84dp"
-        tools:layout_editor_absoluteY="297dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="426dp" />
 
     <Button
         android:id="@+id/btnSignUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sign up"
-        tools:layout_editor_absoluteX="138dp"
-        tools:layout_editor_absoluteY="386dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="516dp" />
 </android.support.constraint.ConstraintLayout>
