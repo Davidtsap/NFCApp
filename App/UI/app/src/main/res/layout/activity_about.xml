@@ -4,37 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/about"
     tools:context=".AboutActivity">
-
-    <TextView
-        android:id="@+id/tvMakeItSimple"
-        android:layout_width="245dp"
-        android:layout_height="58dp"
-        android:layout_marginTop="92dp"
-        android:width="@android:dimen/notification_large_icon_height"
-        android:text="Make it simple"
-        android:textColor="?android:attr/textColorHint"
-        android:textSize="36sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/btnManageUserChips"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tvSmartChip4"
-        android:layout_width="186dp"
-        android:layout_height="58dp"
-        android:layout_marginTop="36dp"
-        android:width="@android:dimen/notification_large_icon_height"
-        android:text="Smart Chip"
-        android:textColor="?android:attr/textColorHint"
-        android:textSize="36sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/btnManageUserChips"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
