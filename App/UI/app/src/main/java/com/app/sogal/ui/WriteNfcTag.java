@@ -10,6 +10,7 @@ import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
 import android.nfc.Tag;
 import android.nfc.tech.Ndef;
+import android.os.AsyncTask;
 import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,10 +19,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.app.sogal.Logic.GetRequst;
+import com.app.sogal.Logic.ServletApi;
 import com.app.sogal.R;
+import com.google.gson.Gson;
+
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.util.concurrent.ExecutionException;
 
+import com.app.sogal.Data.Chip;
 import Http.HttpRequest;
 
 public class WriteNfcTag extends AppCompatActivity {
@@ -36,12 +44,15 @@ public class WriteNfcTag extends AppCompatActivity {
     boolean writeMode;
     Tag myTag;
     Context context;
+    Chip chip;
 
     TextView tvNFCContent;
-    String message ="serial number";
+    String message;
     Button btnWrite;
 
-    HttpRequest http = new HttpRequest();
+    //HttpRequest http = new HttpRequest();
+    //GetRequst getRequst = new GetRequst();
+    ServletApi server = new ServletApi();
 
 
     @Override
@@ -49,6 +60,9 @@ public class WriteNfcTag extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_write_nfc_tag);
         context = this;
+        String chipAsString = getIntent().getStringExtra("Chip");
+        Gson gson = new Gson();
+        chip = gson.fromJson(chipAsString, Chip.class);
 
 
 //        btnWrite.setOnClickListener(new View.OnClickListener()
@@ -126,7 +140,8 @@ public class WriteNfcTag extends AppCompatActivity {
     @Override
     protected void onNewIntent(Intent intent) {
         setIntent(intent);
-        //http.executeGet("GetNewID");
+        //message = http.executeGet("getNFCNumber",null);
+
         if(NfcAdapter.ACTION_TAG_DISCOVERED.equals(intent.getAction())){
             myTag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
         }
@@ -134,8 +149,9 @@ public class WriteNfcTag extends AppCompatActivity {
             if(myTag ==null) {
                 Toast.makeText(context, ERROR_DETECTED, Toast.LENGTH_LONG).show();
             } else {
-                write(message.toString(), myTag);
+                write(chip.getSerialNumber(), myTag);
                 Toast.makeText(context, WRITE_SUCCESS, Toast.LENGTH_LONG).show();
+                server.UpdateNewChip(chip);
             }
         } catch (IOException e) {
             Toast.makeText(context, WRITE_ERROR, Toast.LENGTH_LONG ).show();

@@ -1,5 +1,6 @@
 package com.app.sogal.ui;
 
+import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
@@ -16,15 +17,22 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.app.sogal.Data.Chip;
+import com.app.sogal.Logic.GetRequst;
+import com.app.sogal.Logic.ServletApi;
 import com.app.sogal.R;
 import com.app.sogal.phone.CallToPhone;
+import com.google.gson.Gson;
+
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.InvocationTargetException;
+import java.util.concurrent.ExecutionException;
 
 import Http.HttpRequest;
 
 
-public class ReadNfcTag extends AppCompatActivity {
+public class ReadNfcTag extends Activity {
 
     public static final String ERROR_DETECTED = "No NFC tag detected!";
     public static final String WRITE_SUCCESS = "Text written to the NFC tag successfully!";
@@ -35,7 +43,10 @@ public class ReadNfcTag extends AppCompatActivity {
     boolean writeMode;
     Tag myTag;
     Context context;
-    HttpRequest http = new HttpRequest();
+    //HttpRequest http = new HttpRequest();
+    GetRequst getRequst = new GetRequst();
+    ServletApi server = new ServletApi();
+    String nfcMessege;
 
     TextView tvNFCContent;
     TextView message;
@@ -44,7 +55,7 @@ public class ReadNfcTag extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_read_nfc_tag);
+        //setContentView(R.layout.activity_read_nfc_tag);
         context = this;
 
         nfcAdapter = NfcAdapter.getDefaultAdapter(this);
@@ -99,6 +110,8 @@ public class ReadNfcTag extends AppCompatActivity {
             Log.e("UnsupportedEncoding", e.toString());
         }
         Toast.makeText(this, text, Toast.LENGTH_LONG).show();
+        nfcMessege = text;
+
     }
 
 
@@ -106,11 +119,15 @@ public class ReadNfcTag extends AppCompatActivity {
     protected void onNewIntent(Intent intent) {
         setIntent(intent);
         readFromIntent(intent);
-        //http.executeGet("getAction&1");
-        String str = "CallToPhone";
-        //try{
+        Chip chip  = null;
+        chip = server.getActionByID(nfcMessege);
         try {
-            startActivity(new Intent(getApplicationContext(), Class.forName("com.app.sogal.phone." + str)));
+            Intent actionIntent = new Intent(getApplicationContext(), Class.forName("com.app.sogal.phone." + chip.getAction()));
+            Gson gson = new Gson();
+            String chipJson = gson.toJson(chip);
+            actionIntent.putExtra("Chip", chipJson);
+            startActivity(actionIntent);
+            finish();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
