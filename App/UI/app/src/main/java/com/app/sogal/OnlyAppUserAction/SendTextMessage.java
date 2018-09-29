@@ -1,8 +1,7 @@
-package com.app.sogal.phone;
+package com.app.sogal.OnlyAppUserAction;
 
 import android.Manifest;
 import android.app.Activity;
-import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
@@ -13,7 +12,6 @@ import android.widget.Toast;
 import com.app.sogal.Data.Chip;
 import com.google.gson.Gson;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class SendTextMessage extends Activity {

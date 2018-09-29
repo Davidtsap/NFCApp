@@ -46,8 +46,8 @@
         <activity android:name=".ui.MainActivity" />
         <activity android:name=".ui.SetChipNameActivity" />
         <activity android:name=".ui.ManageUserAccountActivity" />
-        <activity android:name=".phone.CallToPhone" />
-        <activity android:name=".phone.SendTextMessage" />
+        <activity android:name=".OnlyAppUserAction.CallToPhone" />
+        <activity android:name=".OnlyAppUserAction.SendTextMessage" />
         <activity android:name=".ui.AboutActivity" />
         <activity android:name=".ui.ContactUsActivity" />
         <activity android:name=".ui.WriteNfcTag">

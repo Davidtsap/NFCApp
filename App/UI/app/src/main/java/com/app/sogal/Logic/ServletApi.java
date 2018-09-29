@@ -8,10 +8,10 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 import com.app.sogal.Data.Chip;
+import com.google.gson.reflect.TypeToken;
 
 public class ServletApi {
-    GetRequst getRequst = new
-            GetRequst();
+    GetRequst getRequst = new GetRequst();
     PostRequst postRequst = new PostRequst();
 
     public String getNewNfcChipNumber() {
@@ -73,7 +73,18 @@ public class ServletApi {
 
     public List<Chip> getListOfChips(String ID){
 
-        return null;
+        String jsonChip = null;
+        Gson gson =new Gson();
+        List<Chip> chip =null;
+        try {
+            jsonChip = getRequst.execute("getlistOfChip&UserID=David").get(); // +ID
+            chip = gson.fromJson(jsonChip,new TypeToken<List<Chip>>(){}.getType());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+        return chip;
     }
 
     public User getUserDetails(String ID){

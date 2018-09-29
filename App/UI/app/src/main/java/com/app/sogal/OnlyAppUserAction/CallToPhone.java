@@ -1,4 +1,4 @@
-package com.app.sogal.phone;
+package com.app.sogal.OnlyAppUserAction;
 
 import android.Manifest;
 import android.app.Activity;
