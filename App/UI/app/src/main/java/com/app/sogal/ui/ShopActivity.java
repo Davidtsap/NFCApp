@@ -1,26 +1,23 @@
 package com.app.sogal.ui;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.support.v7.app.AppCompatActivity;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+
 import com.app.sogal.R;
 
 public class ShopActivity extends AppCompatActivity {
-    Button btnUserBag;
-    TextView tvUserName;
-    ImageView imvUserPic;
+    WebView wvEbay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop);
 
-        btnUserBag = (Button)findViewById(R.id.btnUserBag);
-
-        tvUserName = (TextView)findViewById(R.id.tvUserName2);
-
-        imvUserPic = (ImageView)findViewById(R.id.imvUserPic2);
+        wvEbay = (WebView)findViewById(R.id.wvEbay);
+        WebSettings webSettings = wvEbay.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        wvEbay.loadUrl("https://www.ebay.com/sch/i.html?_from=R40&_trksid=m570.l1313&_nkw=NFC&_sacat=0");
     }
 }

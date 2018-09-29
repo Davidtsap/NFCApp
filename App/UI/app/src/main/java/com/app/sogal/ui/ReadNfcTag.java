@@ -9,10 +9,9 @@ import android.nfc.NdefMessage;
 import android.nfc.NfcAdapter;
 import android.nfc.Tag;
 import android.os.Build;
+import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.annotation.RequiresApi;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
@@ -21,15 +20,10 @@ import android.widget.Toast;
 import com.app.sogal.Data.Chip;
 import com.app.sogal.Logic.GetRequst;
 import com.app.sogal.Logic.ServletApi;
-import com.app.sogal.R;
-import com.app.sogal.phone.CallToPhone;
 import com.google.gson.Gson;
 
 import java.io.UnsupportedEncodingException;
-import java.lang.reflect.InvocationTargetException;
-import java.util.concurrent.ExecutionException;
 
-import Http.HttpRequest;
 
 
 public class ReadNfcTag extends Activity {
@@ -43,7 +37,6 @@ public class ReadNfcTag extends Activity {
     boolean writeMode;
     Tag myTag;
     Context context;
-    //HttpRequest http = new HttpRequest();
     GetRequst getRequst = new GetRequst();
     ServletApi server = new ServletApi();
     String nfcMessege;

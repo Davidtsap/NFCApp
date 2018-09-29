@@ -9,7 +9,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 import com.app.sogal.R;
 
-//import Http.HttpRequest;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 

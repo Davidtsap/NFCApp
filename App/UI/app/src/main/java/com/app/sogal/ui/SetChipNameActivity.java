@@ -1,28 +1,24 @@
 package com.app.sogal.ui;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.app.sogal.Logic.GetRequst;
+import com.app.sogal.Data.Chip;
 import com.app.sogal.Logic.PostRequst;
 import com.app.sogal.R;
 import com.google.gson.Gson;
-
-import Data.Chip;
-import Http.HttpRequest;
 
 public class SetChipNameActivity extends AppCompatActivity implements View.OnClickListener {
     TextView tvUserName;
     ImageView imvUserPic;
     EditText edtChipName;
     Button btnSave;
-    HttpRequest http = new HttpRequest();
     PostRequst postRequst = new PostRequst();
     Chip inChip;
 

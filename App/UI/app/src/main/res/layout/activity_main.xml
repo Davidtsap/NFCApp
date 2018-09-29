@@ -4,14 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-    <!--
+    android:background="@drawable/main"
+    tools:context="ui.MainActivity"
+    tools:layout_editor_absoluteY="25dp">
+
     <android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/drawer_layout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fitsSystemWindows="true">
+        android:layout_width="0dp"
+        android:layout_height="600dp"
+        android:layout_marginTop="8dp"
+        android:fitsSystemWindows="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSmartChip"
+        app:layout_constraintVertical_bias="0.708">
 
         <FrameLayout
             android:id="@+id/content_frame"
@@ -26,23 +35,24 @@
             android:fitsSystemWindows="true" />
 
     </android.support.v4.widget.DrawerLayout>
--->
+
     <Button
         android:id="@+id/btnManageUserChips"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
         android:text="Manage my chips"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnShop"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.192" />
+        app:layout_constraintTop_toBottomOf="@+id/tvSmartChip" />
 
     <TextView
         android:id="@+id/tvSmartChip"
         android:layout_width="186dp"
-        android:layout_height="58dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginBottom="21dp"
         android:width="@android:dimen/notification_large_icon_height"
         android:text="Smart Chip"
         android:textColor="?android:attr/textColorHint"
@@ -50,7 +60,6 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/btnManageUserChips"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -58,10 +67,10 @@
         android:id="@+id/btnShop"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
         android:text="Shop"
         app:layout_constraintBottom_toTopOf="@+id/btnManageUserAccount"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnManageUserChips" />
 
@@ -69,10 +78,10 @@
         android:id="@+id/btnManageUserAccount"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
         android:text="My Account"
         app:layout_constraintBottom_toTopOf="@+id/btnAbout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnShop" />
 
@@ -80,10 +89,10 @@
         android:id="@+id/btnAbout"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="29dp"
         android:text="About"
         app:layout_constraintBottom_toTopOf="@+id/btnContactUs"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnManageUserAccount" />
 
@@ -91,10 +100,10 @@
         android:id="@+id/btnContactUs"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
         android:text="Contact Us"
         app:layout_constraintBottom_toTopOf="@+id/btnLogOut"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnAbout" />
 
@@ -102,18 +111,12 @@
         android:id="@+id/btnLogOut"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
         android:text="Log out"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnContactUs" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/main"
-        tools:layout_editor_absoluteX="4dp"
-        tools:layout_editor_absoluteY="16dp" />
+
 </android.support.constraint.ConstraintLayout>

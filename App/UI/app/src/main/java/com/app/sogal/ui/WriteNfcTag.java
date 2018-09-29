@@ -10,27 +10,19 @@ import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
 import android.nfc.Tag;
 import android.nfc.tech.Ndef;
-import android.os.AsyncTask;
-import android.os.Parcelable;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.app.sogal.Logic.GetRequst;
+import com.app.sogal.Data.Chip;
 import com.app.sogal.Logic.ServletApi;
 import com.app.sogal.R;
 import com.google.gson.Gson;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.util.concurrent.ExecutionException;
-
-import com.app.sogal.Data.Chip;
-import Http.HttpRequest;
 
 public class WriteNfcTag extends AppCompatActivity {
 
@@ -151,7 +143,7 @@ public class WriteNfcTag extends AppCompatActivity {
             } else {
                 write(chip.getSerialNumber(), myTag);
                 Toast.makeText(context, WRITE_SUCCESS, Toast.LENGTH_LONG).show();
-                server.UpdateNewChip(chip);
+                server.addUserNewChip(chip);
             }
         } catch (IOException e) {
             Toast.makeText(context, WRITE_ERROR, Toast.LENGTH_LONG ).show();
