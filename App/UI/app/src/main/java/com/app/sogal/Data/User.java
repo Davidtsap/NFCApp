@@ -5,49 +5,68 @@ import android.media.Image;
 import java.util.List;
 
 public class User {
-    String userName;
-    String userEmail;
-    String userPhone;
-    //List<Chip> userListOfChips;
-    Image userImage;
+    String _id;
+    String name;
+    String email;
+    String phone;
+    String token;
+    List<Chip> userListOfChips;
+    //Image userImage;
 
-    public String getUserName() {
-        return userName;
+    public String get_id() {
+        return _id;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setToken(String token){
+        this.token = token;
     }
 
-    public String getUserEmail() {
-        return userEmail;
+    public String getToken(){
+        return this.token;
     }
 
-    public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail;
+    public void set_id(String _id) {
+        this._id = _id;
     }
 
-    public String getUserPhone() {
-        return userPhone;
+    public String getName() {
+        return name;
     }
 
-    public void setUserPhone(String userPhone) {
-        this.userPhone = userPhone;
+    public void setName(String name) {
+        this.name = name;
     }
 
-//    public List<Chip> getUserListOfChips() {
-//        return userListOfChips;
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public List<Chip> getUserListOfChips() {
+        return userListOfChips;
+    }
+
+    public void setUserListOfChips(List<Chip> userListOfChips) {
+        this.userListOfChips = userListOfChips;
+    }
+
+
+//    public Image getUserImage() {
+//        return userImage;
 //    }
 //
-//    public void setUserListOfChips(List<Chip> userListOfChips) {
-//        this.userListOfChips = userListOfChips;
+//    public void setUserImage(Image userImage) {
+//        this.userImage = userImage;
 //    }
-
-    public Image getUserImage() {
-        return userImage;
-    }
-
-    public void setUserImage(Image userImage) {
-        this.userImage = userImage;
-    }
 }

@@ -5,6 +5,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+
+import com.app.sogal.Data.User;
+import com.app.sogal.Logic.ServletApi;
 import com.app.sogal.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -14,6 +18,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button btnAbout;
     Button btnContactUs;
     Button btnLogOut;
+    TextView userName;
+    ServletApi servlet = new ServletApi();
 
 
     @Override
@@ -39,6 +45,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnLogOut = (Button) findViewById(R.id.btnLogOut);
         btnLogOut.setOnClickListener(this);
 
+        userName = (TextView) findViewById(R.id.userName);
+        String userToken = getIntent().getStringExtra("userToken");
+        getUserDetails(userToken);
     }
 
     @Override
@@ -57,5 +66,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(new Intent(getApplicationContext(), MainStartupActivity.class));
         }
 
+    }
+    
+    private void getUserDetails (String token){
+        User user = servlet.getUserDetails(token);
+        user.setToken(token);
+        userName.setText("Hello " +user.getName());
     }
 }

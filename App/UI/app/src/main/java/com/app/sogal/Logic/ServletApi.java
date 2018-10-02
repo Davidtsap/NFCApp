@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 import com.app.sogal.Data.Chip;
+import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 
 public class ServletApi {
@@ -33,9 +34,19 @@ public class ServletApi {
         return true;
     }
 
-    public boolean userLogin(User user){
-
-        return true;
+    public String userLogin(String email , String password){
+        String id = null;
+        JsonObject innerObject = new JsonObject();
+        innerObject.addProperty("email", email);
+        innerObject.addProperty("password", password);
+        try{
+        id = postRequst.execute("auth",innerObject.toString()).get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+        return id;
     }
 
     public boolean addUserNewChip(Chip chip) {
@@ -87,9 +98,19 @@ public class ServletApi {
         return chip;
     }
 
-    public User getUserDetails(String ID){
-
-        return null;
+    public User getUserDetails(String token){
+        Gson gson =new Gson();
+        String userDetails;
+        User user =null;
+        try {
+            userDetails = getRequst.execute("users/me" ,token).get(); // +ID
+            user = gson.fromJson(userDetails,User.class);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+        return user;
     }
 
     public boolean updateUserDetails(String ID){

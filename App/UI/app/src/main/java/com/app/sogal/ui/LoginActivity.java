@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.app.sogal.Data.User;
+import com.app.sogal.Logic.ServletApi;
 import com.app.sogal.R;
 
 
@@ -15,6 +18,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     EditText edEmail;
     EditText edPassword;
     Button btnLogIn;
+
+    ServletApi servlet = new ServletApi();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,9 +44,19 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 {
                     Toast.makeText(this, "Unvalid email", Toast.LENGTH_LONG).show();
                 }
-                edEmail.setText("");
-                edPassword.setText("");
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                else {
+                    String email = edEmail.getText().toString();
+                    String password = edPassword.getText().toString();
+                    String  tokenUser = servlet.userLogin(email,password);
+                    if(tokenUser != null){
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                        intent.putExtra("userToken", tokenUser);
+                        startActivity(intent);
+                    }
+                    else{
+                        Toast.makeText(this,"email or password wrong",Toast.LENGTH_LONG).show();
+                    }
+                }
             }
             else {
                 Toast.makeText(this, "Please fill all fields", Toast.LENGTH_LONG).show();

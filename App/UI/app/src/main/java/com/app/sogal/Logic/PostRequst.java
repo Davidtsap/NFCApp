@@ -11,7 +11,7 @@ import java.net.URL;
 import static org.apache.http.protocol.HTTP.USER_AGENT;
 
 public class PostRequst extends AsyncTask<String, Integer, String> {
-    private String targetURL = "http://10.0.0.9:8080/";
+    private String targetURL = "https://smartchip.herokuapp.com/api/";
 
     @Override
     protected String doInBackground(String... strings) {
@@ -20,6 +20,7 @@ public class PostRequst extends AsyncTask<String, Integer, String> {
             HttpURLConnection con = (HttpURLConnection) obj.openConnection();
             con.setRequestMethod("POST");
             con.setRequestProperty("User-Agent", USER_AGENT);
+            con.setRequestProperty("Content-Type","application/json");
 
             // For POST only - START
             con.setDoOutput(true);
@@ -45,14 +46,15 @@ public class PostRequst extends AsyncTask<String, Integer, String> {
 
                 // print result
                 System.out.println(response.toString());
+                return response.toString();
             } else {
                 System.out.println("POST request not worked");
-            }
                 return null;
-    } catch (Exception e){
+            }
+        } catch (Exception e){
+            return null;
         }
         finally {
-            return null;
         }
     }
 }

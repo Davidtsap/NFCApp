@@ -12,8 +12,7 @@ import static org.apache.http.HttpHeaders.USER_AGENT;
 
 public class GetRequst extends AsyncTask<String, Integer, String> {
 
-    private String targetURL = "http://10.0.0.9:8080/";
-
+    private String targetURL = "https://smartchip.herokuapp.com/api/";
     @Override
     protected String doInBackground(String... strings) {
         try {
@@ -25,6 +24,9 @@ public class GetRequst extends AsyncTask<String, Integer, String> {
                 e.printStackTrace();
             }
             con.setRequestProperty("User-Agent", USER_AGENT);
+            if(strings[1] != null){
+                con.setRequestProperty("x-auth-token",strings[1]);
+            }
             int responseCode = con.getResponseCode();
             System.out.println("GET Response Code :: " + responseCode);
             if (responseCode == HttpURLConnection.HTTP_OK) { // success
