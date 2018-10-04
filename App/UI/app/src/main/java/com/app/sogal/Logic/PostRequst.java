@@ -21,7 +21,9 @@ public class PostRequst extends AsyncTask<String, Integer, String> {
             con.setRequestMethod("POST");
             con.setRequestProperty("User-Agent", USER_AGENT);
             con.setRequestProperty("Content-Type","application/json");
-
+            if(strings.length == 3){
+                con.setRequestProperty("x-auth-token",strings[2]);
+            }
             // For POST only - START
             con.setDoOutput(true);
             OutputStream os = con.getOutputStream();

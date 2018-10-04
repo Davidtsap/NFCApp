@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button btnLogOut;
     TextView userName;
     ServletApi servlet = new ServletApi();
+    public static User user;
 
 
     @Override
@@ -69,7 +70,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     
     private void getUserDetails (String token){
-        User user = servlet.getUserDetails(token);
+        User userDetails = servlet.getUserDetails(token);
+        user = userDetails;
         user.setToken(token);
         userName.setText("Hello " +user.getName());
     }

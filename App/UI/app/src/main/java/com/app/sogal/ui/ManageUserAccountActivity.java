@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.app.sogal.Data.User;
 import com.app.sogal.R;
 
 public class ManageUserAccountActivity extends AppCompatActivity implements View.OnClickListener {
@@ -19,6 +21,8 @@ public class ManageUserAccountActivity extends AppCompatActivity implements View
     EditText edtEmail2;
     EditText edtPhone2;
     Button btnSaveChanges;
+
+    User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +40,7 @@ public class ManageUserAccountActivity extends AppCompatActivity implements View
         edtPassword2 = (EditText)findViewById(R.id.edtPassword2);
         edtEmail2 = (EditText)findViewById(R.id.edtEmail2);
         edtPhone2 = (EditText)findViewById(R.id.edtPhone2);
-
+        user = MainActivity.user;
     }
 
     @Override

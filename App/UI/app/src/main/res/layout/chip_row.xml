@@ -1,0 +1,18 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <TextView
+        android:id="@+id/chipName"
+        android:layout_width="158dp"
+        android:layout_height="29dp"
+        android:text="chipName" />
+
+    <TextView
+        android:id="@+id/chipFunction"
+        android:layout_width="224dp"
+        android:layout_height="31dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:text="TextView" />
+</RelativeLayout>

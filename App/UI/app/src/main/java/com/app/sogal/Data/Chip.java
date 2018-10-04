@@ -3,31 +3,31 @@ package com.app.sogal.Data;
 import java.util.List;
 
 public class Chip {
-    String serialNumber;
+    String _id;
     String action;
-    String chipName;
-    List<String> additionalValues;
+    String name;
+    List<String> options;
 
     public Chip() {
     }
 
     public List<String> getAdditionalValues() {
-        return additionalValues;
+        return options;
     }
 
     public void setAdditionalValues(List<String> additionalValues) {
-        this.additionalValues = additionalValues;
+        this.options = additionalValues;
     }
     public void setChipName(String chipName) {
-        this.chipName = chipName;
+        this.name = chipName;
     }
 
     public String getChipName() {
-        return this.chipName;
+        return this.name;
     }
 
     public void setSerialNumber(String serialNumber) {
-        this.serialNumber = serialNumber;
+        this._id = serialNumber;
     }
 
     public void setAction(String action) {
@@ -35,7 +35,7 @@ public class Chip {
     }
 
     public String getSerialNumber() {
-        return this.serialNumber;
+        return this._id;
     }
 
     public String getAction() {

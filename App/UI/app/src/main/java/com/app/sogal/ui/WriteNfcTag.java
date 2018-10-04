@@ -143,7 +143,7 @@ public class WriteNfcTag extends AppCompatActivity {
             } else {
                 write(chip.getSerialNumber(), myTag);
                 Toast.makeText(context, WRITE_SUCCESS, Toast.LENGTH_LONG).show();
-                server.addUserNewChip(chip);
+              //  server.addUserNewChip(chip);
             }
         } catch (IOException e) {
             Toast.makeText(context, WRITE_ERROR, Toast.LENGTH_LONG ).show();

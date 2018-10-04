@@ -1,6 +1,7 @@
 package com.app.sogal.Logic;
 
 import com.app.sogal.Data.User;
+import com.app.sogal.ui.MainActivity;
 import com.google.gson.Gson;
 
 import java.lang.reflect.Array;
@@ -40,7 +41,7 @@ public class ServletApi {
         innerObject.addProperty("email", email);
         innerObject.addProperty("password", password);
         try{
-        id = postRequst.execute("auth",innerObject.toString()).get();
+         id = postRequst.execute("auth",innerObject.toString()).get();
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
@@ -49,12 +50,20 @@ public class ServletApi {
         return id;
     }
 
-    public boolean addUserNewChip(Chip chip) {
+    public Chip addUserNewChip(Chip chip) {
         Gson gson = new Gson();
-        String chipString = gson.toJson(chip);
-        postRequst.execute("updateNFCMethod" ,chipString);
+        Chip newChip = null;
+        try {
+            String chipString = gson.toJson(chip);
+            String strChip = postRequst.execute("chips" ,chipString , MainActivity.user.getToken()).get();
+            newChip = gson.fromJson(strChip,Chip.class);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
 
-        return true;
+        return newChip;
     }
 
     public boolean deleteUserChip(Chip chip) {
@@ -82,13 +91,13 @@ public class ServletApi {
         return chip;
     }
 
-    public List<Chip> getListOfChips(String ID){
+    public List<Chip> getListOfChips(String token){
 
         String jsonChip = null;
         Gson gson =new Gson();
         List<Chip> chip =null;
         try {
-            jsonChip = getRequst.execute("getlistOfChip&UserID=David").get(); // +ID
+            jsonChip = getRequst.execute("chips",token).get(); // +ID
             chip = gson.fromJson(jsonChip,new TypeToken<List<Chip>>(){}.getType());
         } catch (InterruptedException e) {
             e.printStackTrace();

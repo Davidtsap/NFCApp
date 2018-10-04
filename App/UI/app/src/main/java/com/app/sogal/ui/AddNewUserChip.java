@@ -86,15 +86,16 @@ public class AddNewUserChip extends AppCompatActivity implements View.OnClickLis
                 Toast.makeText(this, "You have to fill all the info", Toast.LENGTH_LONG).show();
             } else {
                 Intent intent = new Intent(getBaseContext(), WriteNfcTag.class);
-                String nfcNumber = servlet.getNewNfcChipNumber();
-                Toast.makeText(this, nfcNumber, Toast.LENGTH_LONG).show();
+               // String nfcNumber = servlet.getNewNfcChipNumber();
+                //Toast.makeText(this, nfcNumber, Toast.LENGTH_LONG).show();
                 Chip chip = new Chip();
                 chip.setAction(function);
                 chip.setChipName(ChipName.getText().toString());
-                chip.setSerialNumber(nfcNumber);
+                //chip.setSerialNumber(nfcNumber);
                 additionalValue.add(m_Text);
                 chip.setAdditionalValues(additionalValue);
                 Gson gson = new Gson();
+                chip = servlet.addUserNewChip(chip);
                 String chipJson = gson.toJson(chip);
                 intent.putExtra("Chip", chipJson);
                 startActivity(intent);

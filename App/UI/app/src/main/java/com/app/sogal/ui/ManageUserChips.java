@@ -7,8 +7,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+
+import com.app.sogal.Data.Chip;
+import com.app.sogal.Data.User;
+import com.app.sogal.Logic.ChipAdapter;
+import com.app.sogal.Logic.ServletApi;
 import com.app.sogal.R;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -21,8 +27,11 @@ public class ManageUserChips extends AppCompatActivity  implements View.OnClickL
     TextView tvUserName;
     ImageView imvUserPic;
     RadioGroup radioGroup;
-
+    ListView chipListView;
     String radioText;
+
+    ServletApi server = new ServletApi();
+    ChipAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +43,15 @@ public class ManageUserChips extends AppCompatActivity  implements View.OnClickL
         tvUserName = (TextView) findViewById(R.id.tvUserName);
 
         imvUserPic = (ImageView) findViewById(R.id.imvUserPic);
+
+        chipListView = (ListView)findViewById(R.id.ChipList);
+        List<Chip> chipList = getListOfChip(MainActivity.user);
+        adapter = new ChipAdapter(this,chipList);
+        chipListView.setAdapter(adapter);
+    }
+
+    private List<Chip> getListOfChip(User user) {
+        return server.getListOfChips(user.getToken());
     }
 
     @Override
