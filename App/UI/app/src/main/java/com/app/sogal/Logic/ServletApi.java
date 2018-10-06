@@ -16,19 +16,19 @@ public class ServletApi {
     GetRequst getRequst = new GetRequst();
     PostRequst postRequst = new PostRequst();
 
-    public String getNewNfcChipNumber() {
-        String nfcNumber =null;
-        try {
-            nfcNumber = getRequst.execute("getNFCNumber").get();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        }
-        finally {
-            return nfcNumber;
-        }
-    }
+//    public String getNewNfcChipNumber() {
+//        String nfcNumber =null;
+//        try {
+//            nfcNumber = getRequst.execute("getNFCNumber").get();
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        } catch (ExecutionException e) {
+//            e.printStackTrace();
+//        }
+//        finally {
+//            return nfcNumber;
+//        }
+//    }
 
     public boolean addNewUser(User newUser){
 

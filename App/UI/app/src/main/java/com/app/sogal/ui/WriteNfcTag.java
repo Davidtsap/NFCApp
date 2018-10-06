@@ -36,11 +36,9 @@ public class WriteNfcTag extends AppCompatActivity {
     boolean writeMode;
     Tag myTag;
     Context context;
-    Chip chip;
+    //Chip chip;
+    String scanOnChip;
 
-    TextView tvNFCContent;
-    String message;
-    Button btnWrite;
 
     //HttpRequest http = new HttpRequest();
     //GetRequst getRequst = new GetRequst();
@@ -52,9 +50,7 @@ public class WriteNfcTag extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_write_nfc_tag);
         context = this;
-        String chipAsString = getIntent().getStringExtra("Chip");
-        Gson gson = new Gson();
-        chip = gson.fromJson(chipAsString, Chip.class);
+        scanOnChip = getIntent().getStringExtra("ScanOnChip");
 
 
 //        btnWrite.setOnClickListener(new View.OnClickListener()
@@ -141,7 +137,7 @@ public class WriteNfcTag extends AppCompatActivity {
             if(myTag ==null) {
                 Toast.makeText(context, ERROR_DETECTED, Toast.LENGTH_LONG).show();
             } else {
-                write(chip.getSerialNumber(), myTag);
+                write(scanOnChip, myTag);
                 Toast.makeText(context, WRITE_SUCCESS, Toast.LENGTH_LONG).show();
               //  server.addUserNewChip(chip);
             }
