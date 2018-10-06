@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.app.sogal.Data.User;
@@ -29,8 +30,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         edEmail = (EditText)findViewById(R.id.edEmail);
         edPassword = (EditText)findViewById(R.id.edPassword);
         btnLogIn = (Button)findViewById(R.id.btnLogIn);
-
         btnLogIn.setOnClickListener(this);
+
 
     }
 

@@ -4,108 +4,112 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/top"
-    tools:context="ui.ManageUserAccountActivity">
+    android:background="@drawable/back_account"
+    tools:context="ui.ManageUserAccountActivity"
+    tools:layout_editor_absoluteY="81dp">
 
     <Button
         android:id="@+id/btnSaveChanges"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="save changes"
+        android:layout_width="265dp"
+        android:layout_height="49dp"
+        android:layout_marginBottom="16dp"
+        android:background="#0000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.933" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/edtUserName2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="User Name"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/edtPassword2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvManageMyAccount" />
+        app:layout_constraintTop_toBottomOf="@+id/tvUserName3"
+        app:layout_constraintVertical_bias="0.927" />
 
     <EditText
         android:id="@+id/edtPassword2"
         android:layout_width="wrap_content"
         android:layout_height="43dp"
         android:ems="10"
-        android:hint="Password"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/edtEmail2"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtUserName2" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.538" />
 
     <EditText
         android:id="@+id/edtEmail2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Email"
         android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toTopOf="@+id/edtPhone2"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtPassword2" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.634" />
 
     <EditText
         android:id="@+id/edtPhone2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Phone"
         android:inputType="phone"
-        app:layout_constraintBottom_toTopOf="@+id/btnSaveChanges"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtEmail2" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.733" />
+
+    <EditText
+        android:id="@+id/edtImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="phone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.832" />
 
     <TextView
         android:id="@+id/tvUserName3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="User Name"
-        app:layout_constraintBottom_toTopOf="@+id/tvManageMyAccount"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.085"
+        app:layout_constraintHorizontal_bias="0.18"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.907"
+        app:layout_constraintVertical_bias="0.154"
         tools:ignore="MissingConstraints" />
 
     <ImageView
         android:id="@+id/imvUserPic3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/tvUserName3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.086"
+        app:layout_constraintHorizontal_bias="0.182"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.036"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@mipmap/ic_launcher"
         tools:ignore="MissingConstraints" />
 
-    <TextView
-        android:id="@+id/tvManageMyAccount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Manage my account:"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.242" />
+
 </android.support.constraint.ConstraintLayout>

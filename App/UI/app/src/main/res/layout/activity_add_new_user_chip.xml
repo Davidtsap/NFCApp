@@ -54,10 +54,10 @@
 
     <Button
         android:id="@+id/btnFinish"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
+        android:layout_width="231dp"
+        android:layout_height="49dp"
         android:layout_marginBottom="52dp"
-        android:text="Scan"
+        android:background="@drawable/scan"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

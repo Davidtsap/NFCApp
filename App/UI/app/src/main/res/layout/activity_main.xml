@@ -4,119 +4,84 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/main"
+    android:background="@drawable/main_background"
     tools:context="ui.MainActivity"
-    tools:layout_editor_absoluteY="25dp">
-
-    <!--<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-        <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
-        <!--android:id="@+id/drawer_layout"-->
-        <!--android:layout_width="0dp"-->
-        <!--android:layout_height="600dp"-->
-        <!--android:layout_marginTop="8dp"-->
-        <!--android:fitsSystemWindows="true"-->
-        <!--app:layout_constraintBottom_toBottomOf="parent"-->
-        <!--app:layout_constraintEnd_toEndOf="parent"-->
-        <!--app:layout_constraintHorizontal_bias="0.0"-->
-        <!--app:layout_constraintStart_toStartOf="parent"-->
-        <!--app:layout_constraintTop_toBottomOf="@+id/tvSmartChip"-->
-        <!--app:layout_constraintVertical_bias="0.708">-->
-
-        <!--<FrameLayout-->
-            <!--android:id="@+id/content_frame"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent" />-->
-
-        <!--<android.support.design.widget.NavigationView-->
-            <!--android:id="@+id/nav_view"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:layout_gravity="start"-->
-            <!--android:fitsSystemWindows="true" />-->
-
-    <!--</android.support.v4.widget.DrawerLayout>-->
+    tools:layout_editor_absoluteY="81dp">
 
     <Button
         android:id="@+id/btnManageUserChips"
-        android:layout_width="160dp"
+        android:layout_width="158dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
-        android:text="Manage my chips"
-        app:layout_constraintBottom_toTopOf="@+id/btnShop"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="8dp"
+        android:background="#0000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnManageUserAccount"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvSmartChip" />
-
-    <TextView
-        android:id="@+id/tvSmartChip"
-        android:layout_width="186dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="21dp"
-        android:layout_marginBottom="21dp"
-        android:width="@android:dimen/notification_large_icon_height"
-        android:text="Smart Chip"
-        android:textColor="?android:attr/textColorHint"
-        android:textSize="36sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/btnManageUserChips"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.498" />
 
     <Button
         android:id="@+id/btnShop"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
-        android:text="Shop"
-        app:layout_constraintBottom_toTopOf="@+id/btnManageUserAccount"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="8dp"
+        android:background="#0000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnLogOut"
+        app:layout_constraintHorizontal_bias="0.562"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnManageUserChips" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.792" />
 
     <Button
         android:id="@+id/btnManageUserAccount"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
-        android:text="My Account"
-        app:layout_constraintBottom_toTopOf="@+id/btnAbout"
+        android:background="#0000"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnShop" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnManageUserChips"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.498" />
 
     <Button
         android:id="@+id/btnAbout"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="29dp"
-        android:text="About"
-        app:layout_constraintBottom_toTopOf="@+id/btnContactUs"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="8dp"
+        android:background="#0000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnContactUs"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnManageUserAccount" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.637" />
 
     <Button
         android:id="@+id/btnContactUs"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
-        android:text="Contact Us"
-        app:layout_constraintBottom_toTopOf="@+id/btnLogOut"
+        android:background="#0000"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnAbout" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnAbout"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.637" />
 
     <Button
         android:id="@+id/btnLogOut"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
-        android:text="Log out"
+        android:background="#0000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.915"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnContactUs" />
+        app:layout_constraintTop_toBottomOf="@+id/btnContactUs"
+        app:layout_constraintVertical_bias="0.2" />
 
     <TextView
         android:id="@+id/userName"
@@ -125,7 +90,9 @@
         android:text="hello "
         android:textSize="18sp"
         tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="0dp" />
+        tools:layout_editor_absoluteY="0dp"
+        tools:ignore="MissingConstraints" />
+
 
 
 </android.support.constraint.ConstraintLayout>

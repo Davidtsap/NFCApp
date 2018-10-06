@@ -21,6 +21,7 @@ public class ManageUserAccountActivity extends AppCompatActivity implements View
     EditText edtEmail2;
     EditText edtPhone2;
     Button btnSaveChanges;
+    EditText edtImage;
 
     User user;
 
@@ -40,7 +41,14 @@ public class ManageUserAccountActivity extends AppCompatActivity implements View
         edtPassword2 = (EditText)findViewById(R.id.edtPassword2);
         edtEmail2 = (EditText)findViewById(R.id.edtEmail2);
         edtPhone2 = (EditText)findViewById(R.id.edtPhone2);
+        edtImage = (EditText)findViewById(R.id.edtImage);
         user = MainActivity.user;
+
+        edtUserName2.setText(user.getName());
+        edtEmail2.setText(user.getEmail());
+        edtPhone2.setText(user.getPhone());
+        //edtPassword2.setText(user.getPassword());
+
     }
 
     @Override

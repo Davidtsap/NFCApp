@@ -4,53 +4,70 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/login"
-    tools:context="ui.LoginActivity">
+    android:background="@drawable/login_background"
+    tools:context="ui.LoginActivity"
+    tools:layout_editor_absoluteY="81dp">
 
     <EditText
         android:id="@+id/edEmail"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
+        android:layout_width="251dp"
+        android:layout_height="56dp"
         android:layout_gravity="center"
+        android:autoText="false"
         android:ems="10"
         android:hint="@string/email"
         android:inputType="textEmailAddress"
-        android:textSize="30sp"
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/edPassword"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.646"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.928"
+        app:layout_constraintTop_toBottomOf="@+id/guideline3"
+        app:layout_constraintVertical_bias="0.931"
         tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/edPassword"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
+        android:layout_width="253dp"
+        android:layout_height="55dp"
         android:layout_gravity="center"
         android:ems="10"
         android:hint="@string/password"
         android:inputType="textPassword"
-        android:textSize="30sp"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.656"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.757"
+        app:layout_constraintVertical_bias="0.712"
         tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/btnLogIn"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
+        android:layout_width="290dp"
+        android:layout_height="56dp"
         android:layout_gravity="center"
-        android:background="@android:drawable/editbox_dropdown_light_frame"
-        android:text="@string/login"
+        android:background="#0000"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.521"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edPassword"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.852"
         tools:ignore="MissingConstraints" />
+
+    <android.support.constraint.Group
+        android:id="@+id/group3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp" />
+
 </android.support.constraint.ConstraintLayout>
