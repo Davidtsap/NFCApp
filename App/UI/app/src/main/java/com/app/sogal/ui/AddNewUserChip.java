@@ -23,6 +23,8 @@ import android.widget.Toast;
 
 import com.app.sogal.Data.Chip;
 import com.app.sogal.Logic.ServletApi;
+import com.app.sogal.MoreInfoForAction.CallToPhoneInfo;
+import com.app.sogal.OnlyAppUserAction.CallToPhone;
 import com.app.sogal.R;
 
 
@@ -96,8 +98,7 @@ public class AddNewUserChip extends AppCompatActivity implements View.OnClickLis
                 chip.setAdditionalValues(additionalValue);
                 Gson gson = new Gson();
                 chip = servlet.addUserNewChip(chip);
-                String chipJson = gson.toJson(chip);
-                intent.putExtra("Chip", chipJson);
+                intent.putExtra("ScanOnChip", chip.getSerialNumber());
                 startActivity(intent);
 
             }
@@ -119,9 +120,11 @@ public class AddNewUserChip extends AppCompatActivity implements View.OnClickLis
 
     private void showMoreInfo(String function) {
         if(function.equalsIgnoreCase("CallToPhone")){
-            moreInfo.setVisibility(View.VISIBLE);
-            contact.setVisibility(View.VISIBLE);
-            phoneNumber.setVisibility(View.VISIBLE);
+//            moreInfo.setVisibility(View.VISIBLE);
+//            contact.setVisibility(View.VISIBLE);
+//            phoneNumber.setVisibility(View.VISIBLE);
+            CallToPhoneInfo callInfo = new CallToPhoneInfo();
+            callInfo.MoreInfo(this);
         }
         if(function.equalsIgnoreCase("SendTextMessage")){
             moreInfo.setVisibility(View.VISIBLE);

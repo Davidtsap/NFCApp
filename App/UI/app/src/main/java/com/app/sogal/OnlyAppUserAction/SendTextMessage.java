@@ -26,7 +26,6 @@ public class SendTextMessage extends Activity {
         Chip chip = gson.fromJson(chipAsString, Chip.class);
         String phone = getPhoneFromChip(chip);
         String message = getMessegeFromChip(chip);
-
         permissionCheck();
         sendSms(phone,message);
         finish();
