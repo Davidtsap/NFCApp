@@ -22,6 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.app.sogal.Data.Chip;
+import com.app.sogal.Data.MapFunctionToMoreInfo;
 import com.app.sogal.Logic.ServletApi;
 import com.app.sogal.MoreInfoForAction.CallToPhoneInfo;
 import com.app.sogal.OnlyAppUserAction.CallToPhone;
@@ -70,14 +71,20 @@ public class AddNewUserChip extends AppCompatActivity implements View.OnClickLis
         contact = (Button) findViewById(R.id.contact);
         contact.setOnClickListener(this);
         moreInfo = (TextView)findViewById(R.id.moreInfo);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.FunctionAvalible, android.R.layout.simple_spinner_item);
+        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, getListOfFunctions());
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
 
         btnFinish = (Button)findViewById(R.id.btnFinish);
         btnFinish.setOnClickListener(this);
+    }
+
+    private List<String> getListOfFunctions() {
+        ArrayList<String> list =  new ArrayList<String>();
+        list.add("none");
+        list.addAll(MapFunctionToMoreInfo.myMap.keySet());
+        return list;
     }
 
     @Override
@@ -119,51 +126,57 @@ public class AddNewUserChip extends AppCompatActivity implements View.OnClickLis
     }
 
     private void showMoreInfo(String function) {
+        if(!function.equalsIgnoreCase("none")) {
+            Intent intent = new Intent(getApplicationContext(), MapFunctionToMoreInfo.myMap.get(function));
+            startActivityForResult(intent, 0);
+        }
         if(function.equalsIgnoreCase("CallToPhone")){
 //            moreInfo.setVisibility(View.VISIBLE);
 //            contact.setVisibility(View.VISIBLE);
 //            phoneNumber.setVisibility(View.VISIBLE);
-            CallToPhoneInfo callInfo = new CallToPhoneInfo();
-            callInfo.MoreInfo(this);
+//            CallToPhoneInfo callInfo = new CallToPhoneInfo();
+//            callInfo.MoreInfo(this);
+            //Intent intent = new Intent(getApplicationContext(),CallToPhoneInfo.class);
+            //startActivityForResult(intent,0);
         }
         if(function.equalsIgnoreCase("SendTextMessage")){
-            moreInfo.setVisibility(View.VISIBLE);
-            contact.setVisibility(View.VISIBLE);
-            phoneNumber.setVisibility(View.VISIBLE);
-            getTxetFromUser();
+//            moreInfo.setVisibility(View.VISIBLE);
+//            contact.setVisibility(View.VISIBLE);
+//            phoneNumber.setVisibility(View.VISIBLE);
+//            getTxetFromUser();
         }
     }
 
-    private void getTxetFromUser() {
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Enter text message");
-
-        // Set up the input
-        final EditText input = new EditText(this);
-        // Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
-        input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS | InputType.TYPE_TEXT_FLAG_MULTI_LINE );
-        input.setLines(8);
-        input.setMinLines(6);
-        input.setGravity(Gravity.LEFT |Gravity.TOP);
-        builder.setView(input);
-
-        // Set up the buttons
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                m_Text = input.getText().toString();
-            }
-        });
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
-            }
-        });
-
-        builder.show();
-    }
+//    private void getTxetFromUser() {
+//
+//        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//        builder.setTitle("Enter text message");
+//
+//        // Set up the input
+//        final EditText input = new EditText(this);
+//        // Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
+//        input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS | InputType.TYPE_TEXT_FLAG_MULTI_LINE );
+//        input.setLines(8);
+//        input.setMinLines(6);
+//        input.setGravity(Gravity.LEFT |Gravity.TOP);
+//        builder.setView(input);
+//
+//        // Set up the buttons
+//        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialog, int which) {
+//                m_Text = input.getText().toString();
+//            }
+//        });
+//        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialog, int which) {
+//                dialog.cancel();
+//            }
+//        });
+//
+//        builder.show();
+//    }
 
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
@@ -175,28 +188,12 @@ public class AddNewUserChip extends AppCompatActivity implements View.OnClickLis
         if (0 == reqCode) {
             if (resultCode == Activity.RESULT_OK) {
                 System.out.println("in on ActivityResult");
-                Uri uri = data.getData();
-                Cursor c = getContentResolver().query(uri, null, null, null, null);
-                if (c.moveToFirst()) {
-                    String id = c.getString(c.getColumnIndexOrThrow(ContactsContract.Contacts._ID));
-                    String hasPhone = c.getString(c.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER));
-
-                    if (hasPhone.equalsIgnoreCase("1")) {
-                        Cursor phones = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
-                                null,
-                                ContactsContract.CommonDataKinds.Phone.CONTACT_ID
-                                        + " = " + id, null, null);
-                        phones.moveToFirst();
-                        String cNumber = phones.getString(phones.getColumnIndex("data1"));
-                        String name=phones.getString(phones.getColumnIndex(ContactsContract.Data.DISPLAY_NAME));
-                        //here you can find out all the thing.
-                        System.out.println("NAME:"+name);
-                        phoneNumber.setText(cNumber);
-                        additionalValue.add(cNumber);
-                    }
-                }
+                Bundle bundle = data.getExtras();
+                additionalValue = (ArrayList<String>) bundle.getStringArrayList("additionalValue");
             }
         }
 
     }
+
+
 }

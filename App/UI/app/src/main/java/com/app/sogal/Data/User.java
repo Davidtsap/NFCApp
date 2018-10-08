@@ -5,6 +5,7 @@ import android.media.Image;
 import java.util.List;
 
 public class User {
+
     String _id;
     String name;
     String email;

@@ -61,6 +61,16 @@
                 android:resource="@xml/nfc_tech_filter" />
         </activity>
         <activity android:name=".ui.PhoneModeActivity"></activity>
+
+        <activity android:name=".MoreInfoForAction.CallToPhoneInfo"
+            android:theme="@style/Theme.AppCompat.Dialog"/>
+
+        <activity android:name=".MoreInfoForAction.SendTextMessageInfo"
+            android:theme="@style/Theme.AppCompat.Dialog"/>
+
+        <activity android:name=".MoreInfoForAction.URLInfo"
+            android:theme="@style/Theme.AppCompat.Dialog"/>
+
     </application>
 
 </manifest>

@@ -9,8 +9,11 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 import com.app.sogal.Data.Chip;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
+
+import org.json.JSONObject;
 
 public class ServletApi {
     GetRequst getRequst = new GetRequst();
@@ -30,9 +33,20 @@ public class ServletApi {
 //        }
 //    }
 
-    public boolean addNewUser(User newUser){
-
-        return true;
+    public User addNewUser(User newUser , String password){
+        Gson gson = new Gson();
+        User user = null;
+        try {
+            JsonObject innerObject = gson.toJsonTree(newUser).getAsJsonObject();
+            innerObject.addProperty("password" , password);
+            String strChip = postRequst.execute("users" ,innerObject.toString(), MainActivity.user.getToken()).get();
+            user= gson.fromJson(strChip,User.class);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+        return user;
     }
 
     public String userLogin(String email , String password){
