@@ -47,8 +47,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnLogOut.setOnClickListener(this);
 
         userName = (TextView) findViewById(R.id.userName);
-        String userToken = getIntent().getStringExtra("userToken");
-        getUserDetails(userToken);
+
+        String userToken;
+        if(user == null || getIntent().hasExtra("userToken" )){
+            userToken = getIntent().getStringExtra("userToken");
+            getUserDetails(userToken);
+        }
+
     }
 
     @Override

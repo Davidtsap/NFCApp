@@ -38,6 +38,7 @@
                 android:name="android.nfc.action.TECH_DISCOVERED"
                 android:resource="@xml/nfc_tech_filter" />
         </activity>
+        <activity android:name=".ui.RegisterActivity"/>
         <activity android:name=".ui.LoginActivity" />
         <activity android:name=".ui.ShopActivity" />
         <activity android:name=".ui.ConfiguringChipOperations" />
