@@ -108,7 +108,6 @@ public class AddNewUserChip extends AppCompatActivity implements View.OnClickLis
             startActivity(intent);
         }catch (Exception ex){
             Toast.makeText(this, "something went wrong, please try again", Toast.LENGTH_LONG).show();
-
         }
     }
 
@@ -166,7 +165,6 @@ public class AddNewUserChip extends AppCompatActivity implements View.OnClickLis
                 additionalValue = (ArrayList<String>) bundle.getStringArrayList("additionalValue");
             }
         }
-
     }
 
 
