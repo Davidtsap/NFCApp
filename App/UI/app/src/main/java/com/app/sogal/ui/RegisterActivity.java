@@ -14,8 +14,10 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.app.sogal.Data.User;
+import com.app.sogal.Logic.ServletApi;
 import com.app.sogal.R;
 import com.google.gson.Gson;
 
@@ -29,6 +31,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     User inputUser;
     Button btnLoadPic;
     ImageView ImvUserPic;
+
+    ServletApi server = new ServletApi();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,14 +83,22 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View v) {
         if (v==btnSignUp)
         {
-            //inputUser.setUserName(edtUserName.getText().toString());
-            //inputUser.setPassword(edtPassword.getText().toString());
-            //inputUser.seteMail(edtEmail.getText().toString());
-            //inputUser.setPhone(edtPhone.getText().toString());
+            inputUser.setName(edtUserName.getText().toString());
+            String pass = (edtPassword.getText().toString());
+            inputUser.setEmail(edtEmail.getText().toString());
+            inputUser.setPhone(edtPhone.getText().toString());
             Gson gson = new Gson();
             gson.toJson(inputUser);
+            try {
+                server.addNewUser(inputUser,pass);
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            } catch (Exception e) {
+                Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
+
+
+            }
             //http.executePost("name Of Fuction" ,Gson gsonObj (gson.toJson(inputUser)));
-            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+
         }
         if(v == btnLoadPic)
         {

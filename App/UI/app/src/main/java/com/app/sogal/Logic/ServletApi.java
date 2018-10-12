@@ -19,6 +19,7 @@ import org.json.JSONObject;
 public class ServletApi {
     GetRequest GetRequest;
     PostRequest postRequst;
+    PutRequest putRequest;
 
 //    public String getNewNfcChipNumber() {
 //        String nfcNumber =null;
@@ -108,9 +109,33 @@ public class ServletApi {
         return true;
     }
 
-    public boolean updateUserChip(Chip chip) {
+    public Chip updateUserChip(Chip chip) throws Exception {
 
-        return true;
+        putRequest = new PutRequest();
+        ServerAnswer answer;
+        Gson gson = new Gson();
+        Chip newChip = null;
+        try {
+            JsonObject innerObject = new JsonObject();
+            innerObject.addProperty("name", chip.getChipName());
+            innerObject.addProperty("action", chip.getAction());
+            innerObject.addProperty("options", gson.toJson(chip.getAdditionalValues()));
+            String chipString = gson.toJson(innerObject);
+            answer = putRequest.execute("chips/" + chip.getSerialNumber() ,chipString , MainActivity.user.getToken()).get();
+            if(answer!=null){
+                if(answer.getResponseCode() == 200){
+                    newChip = gson.fromJson(answer.getMessage(),Chip.class);
+                }
+                else if(answer.getResponseCode() == 400){
+                    throw new Exception(answer.getMessage());
+                }
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+        return newChip;
     }
 
     public Chip getActionByID(String ID) {
@@ -161,9 +186,11 @@ public class ServletApi {
         return user;
     }
 
-    public boolean updateUserDetails(String ID){
+    public User updateUserDetails(User ID){
 
-        return true;
+        return null;
     }
+
+
 
 }

@@ -2,6 +2,7 @@ package com.app.sogal.ui;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.provider.MediaStore;
@@ -100,7 +101,9 @@ public class ManageUserAccountActivity extends AppCompatActivity implements View
             String picturePath = cursor.getString(columnIndex);
             cursor.close();
 
-            imvUserPic.setImageBitmap(BitmapFactory.decodeFile(picturePath));
+            Bitmap bitmap =BitmapFactory.decodeFile(picturePath);
+            bitmap = Bitmap.createScaledBitmap(bitmap, 53, 39, false);
+            imvUserPic.setImageBitmap(bitmap);
 
         }
     }
