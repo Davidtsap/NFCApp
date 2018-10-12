@@ -16,7 +16,7 @@ import com.app.sogal.R;
 
 import java.util.ArrayList;
 
-public class SendTextMessageInfo  extends AppCompatActivity {
+public class SendTextMessageInfo  extends Activity {
 
     EditText phoneNumber;
     EditText message;
