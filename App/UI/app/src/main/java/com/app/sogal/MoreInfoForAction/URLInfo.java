@@ -29,7 +29,10 @@ public class URLInfo  extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (URL.getText().toString() != null && !URL.getText().toString().isEmpty()) {
-                        additionalValue.add(URL.getText().toString());
+                    String url  = URL.getText().toString();
+                    if (!url.startsWith("http://") && !url.startsWith("https://"))
+                    {url = "http://" + url;}
+                    additionalValue.add(url);
                         Intent intent = new Intent();
                         Bundle bundle = new Bundle();
                         bundle.putStringArrayList("additionalValue", additionalValue);

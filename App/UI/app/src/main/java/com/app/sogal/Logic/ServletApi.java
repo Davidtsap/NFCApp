@@ -1,5 +1,6 @@
 package com.app.sogal.Logic;
 
+import com.app.sogal.Data.ServerAnswer;
 import com.app.sogal.Data.User;
 import com.app.sogal.ui.MainActivity;
 import com.google.gson.Gson;
@@ -16,8 +17,8 @@ import com.google.gson.reflect.TypeToken;
 import org.json.JSONObject;
 
 public class ServletApi {
-    GetRequst getRequst = new GetRequst();
-    PostRequst postRequst = new PostRequst();
+    GetRequest GetRequest;
+    PostRequest postRequst;
 
 //    public String getNewNfcChipNumber() {
 //        String nfcNumber =null;
@@ -33,14 +34,24 @@ public class ServletApi {
 //        }
 //    }
 
-    public User addNewUser(User newUser , String password){
+    public User addNewUser(User newUser , String password) throws Exception{
+        postRequst = new PostRequest();
+        ServerAnswer answer;
         Gson gson = new Gson();
         User user = null;
         try {
             JsonObject innerObject = gson.toJsonTree(newUser).getAsJsonObject();
             innerObject.addProperty("password" , password);
-            String strChip = postRequst.execute("users" ,innerObject.toString(), MainActivity.user.getToken()).get();
-            user= gson.fromJson(strChip,User.class);
+            answer = postRequst.execute("users" ,innerObject.toString(), MainActivity.user.getToken()).get();
+
+            if(answer!=null){
+                if(answer.getResponseCode() == 200) {
+                    user = gson.fromJson(answer.getMessage(), User.class);
+                }
+                else if(answer.getResponseCode() == 400){
+                    throw new Exception(answer.getMessage());
+                }
+            }
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
@@ -49,34 +60,46 @@ public class ServletApi {
         return user;
     }
 
-    public String userLogin(String email , String password){
+    public String userLogin(String email , String password) throws Exception{
+        postRequst = new PostRequest();
         String id = null;
+        ServerAnswer answer;
         JsonObject innerObject = new JsonObject();
         innerObject.addProperty("email", email);
         innerObject.addProperty("password", password);
-        try{
-         id = postRequst.execute("auth",innerObject.toString()).get();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
+        answer = postRequst.execute("auth",innerObject.toString()).get();
+        if(answer!=null){
+            if(answer.getResponseCode() == 200){
+                id= answer.getMessage();
+            }
+            else if(answer.getResponseCode() == 400){
+                throw new Exception(answer.getMessage());
+            }
         }
         return id;
     }
 
-    public Chip addUserNewChip(Chip chip) {
+    public Chip addUserNewChip(Chip chip) throws Exception{
+        postRequst = new PostRequest();
+        ServerAnswer answer;
         Gson gson = new Gson();
         Chip newChip = null;
         try {
             String chipString = gson.toJson(chip);
-            String strChip = postRequst.execute("chips" ,chipString , MainActivity.user.getToken()).get();
-            newChip = gson.fromJson(strChip,Chip.class);
+            answer = postRequst.execute("chips" ,chipString , MainActivity.user.getToken()).get();
+            if(answer!=null){
+                if(answer.getResponseCode() == 200){
+                    newChip = gson.fromJson(answer.getMessage(),Chip.class);
+                }
+                else if(answer.getResponseCode() == 400){
+                    throw new Exception(answer.getMessage());
+                }
+            }
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
-
         return newChip;
     }
 
@@ -92,10 +115,11 @@ public class ServletApi {
 
     public Chip getActionByID(String ID) {
         String jsonChip = null;
+        GetRequest= new GetRequest();
         Gson gson =new Gson();
         Chip chip =null;
         try {
-            jsonChip = getRequst.execute("getAction&NFCNumber=" + ID).get();
+            jsonChip = GetRequest.execute("getAction&NFCNumber=" + ID).get();
             chip = gson.fromJson(jsonChip,Chip.class);
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -106,12 +130,12 @@ public class ServletApi {
     }
 
     public List<Chip> getListOfChips(String token){
-
+        GetRequest= new GetRequest();
         String jsonChip = null;
         Gson gson =new Gson();
         List<Chip> chip =null;
         try {
-            jsonChip = getRequst.execute("chips",token).get(); // +ID
+            jsonChip = GetRequest.execute("chips",token).get(); // +ID
             chip = gson.fromJson(jsonChip,new TypeToken<List<Chip>>(){}.getType());
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -122,11 +146,12 @@ public class ServletApi {
     }
 
     public User getUserDetails(String token){
+        GetRequest= new GetRequest();
         Gson gson =new Gson();
         String userDetails;
         User user =null;
         try {
-            userDetails = getRequst.execute("users/me" ,token).get(); // +ID
+            userDetails = GetRequest.execute("users/me" ,token).get(); // +ID
             user = gson.fromJson(userDetails,User.class);
         } catch (InterruptedException e) {
             e.printStackTrace();

@@ -23,6 +23,8 @@ import com.google.gson.Gson;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class WriteNfcTag extends AppCompatActivity {
 
@@ -38,41 +40,25 @@ public class WriteNfcTag extends AppCompatActivity {
     Context context;
     //Chip chip;
     String scanOnChip;
+    boolean Global;
+    String function;
 
-
-    //HttpRequest http = new HttpRequest();
-    //GetRequst getRequst = new GetRequst();
     ServletApi server = new ServletApi();
+
+    Map<String,String> myMap = new HashMap<String,String>();
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        initMap();
         setContentView(R.layout.activity_write_nfc_tag);
         context = this;
         scanOnChip = getIntent().getStringExtra("ScanOnChip");
-
-
-//        btnWrite.setOnClickListener(new View.OnClickListener()
-//        {
-//            @Override
-//            public void onClick(View v) {
-//                try {
-//                    if(myTag ==null) {
-//                        Toast.makeText(context, ERROR_DETECTED, Toast.LENGTH_LONG).show();
-//                    } else {
-//                        write(message.toString(), myTag);
-//                        Toast.makeText(context, WRITE_SUCCESS, Toast.LENGTH_LONG ).show();
-//                    }
-//                } catch (IOException e) {
-//                    Toast.makeText(context, WRITE_ERROR, Toast.LENGTH_LONG ).show();
-//                    e.printStackTrace();
-//                } catch (FormatException e) {
-//                    Toast.makeText(context, WRITE_ERROR, Toast.LENGTH_LONG ).show();
-//                    e.printStackTrace();
-//                }
-//            }
-//        });
+        Global = getIntent().getBooleanExtra("Global",false);
+        if(Global){
+            function = getIntent().getStringExtra("Function");
+        }
 
         nfcAdapter = NfcAdapter.getDefaultAdapter(this);
         if (nfcAdapter == null) {
@@ -88,11 +74,24 @@ public class WriteNfcTag extends AppCompatActivity {
         writeTagFilters = new IntentFilter[] { tagDetected };
     }
 
+    private void initMap() {
+        myMap.put("CallToPhone", "tel:");
+        myMap.put("SendTextMessage", "sms:");
+        myMap.put("URLForwarding","");
+    }
+
     /******************************************************************************
      **********************************Write to NFC Tag****************************
      ******************************************************************************/
     private void write(String text, Tag tag) throws IOException, FormatException {
-        NdefRecord[] records = { createRecord(text) };
+
+        NdefRecord record;
+        if(Global){
+            record =createGlobalRecord(text);
+        }else {
+            record = createRecord(text);
+        }
+        NdefRecord[] records = {record};
         NdefMessage message = new NdefMessage(records);
         // Get an instance of Ndef for the tag.
         Ndef ndef = Ndef.get(tag);
@@ -113,13 +112,19 @@ public class WriteNfcTag extends AppCompatActivity {
 
         // set status byte (see NDEF spec for actual bits)
         payload[0] = (byte) langLength;
-
         // copy langbytes and textbytes into payload
-        System.arraycopy(langBytes, 0, payload, 1,              langLength);
+        System.arraycopy(langBytes, 0, payload, 1,langLength);
         System.arraycopy(textBytes, 0, payload, 1 + langLength, textLength);
+        NdefRecord recordNFC = new NdefRecord(NdefRecord.TNF_WELL_KNOWN, NdefRecord.RTD_TEXT,  new byte[0], payload);
 
-        NdefRecord recordNFC = new NdefRecord(NdefRecord.TNF_WELL_KNOWN,  NdefRecord.RTD_TEXT,  new byte[0], payload);
+        return recordNFC;
+    }
 
+    private NdefRecord createGlobalRecord(String text) throws UnsupportedEncodingException {
+
+        String func  = myMap.get(function);
+        String uri = func + text;
+        NdefRecord recordNFC = NdefRecord.createUri(uri);
         return recordNFC;
     }
 
@@ -179,4 +184,45 @@ public class WriteNfcTag extends AppCompatActivity {
     }
 
 }
+
+
+//final String[] URI_PREFIX = new String[] {
+//    /* 0x00 */ "",
+//        /* 0x01 */ "http://www.",
+//        /* 0x02 */ "https://www.",
+//        /* 0x03 */ "http://",
+//        /* 0x04 */ "https://",
+//        /* 0x05 */ "tel:",
+//        /* 0x06 */ "mailto:",
+//        /* 0x07 */ "ftp://anonymous:anonymous@",
+//        /* 0x08 */ "ftp://ftp.",
+//        /* 0x09 */ "ftps://",
+//        /* 0x0A */ "sftp://",
+//        /* 0x0B */ "smb://",
+//        /* 0x0C */ "nfs://",
+//        /* 0x0D */ "ftp://",
+//        /* 0x0E */ "dav://",
+//        /* 0x0F */ "news:",
+//        /* 0x10 */ "telnet://",
+//        /* 0x11 */ "imap:",
+//        /* 0x12 */ "rtsp://",
+//        /* 0x13 */ "urn:",
+//        /* 0x14 */ "pop:",
+//        /* 0x15 */ "sip:",
+//        /* 0x16 */ "sips:",
+//        /* 0x17 */ "tftp:",
+//        /* 0x18 */ "btspp://",
+//        /* 0x19 */ "btl2cap://",
+//        /* 0x1A */ "btgoep://",
+//        /* 0x1B */ "tcpobex://",
+//        /* 0x1C */ "irdaobex://",
+//        /* 0x1D */ "file://",
+//        /* 0x1E */ "urn:epc:id:",
+//        /* 0x1F */ "urn:epc:tag:",
+//        /* 0x20 */ "urn:epc:pat:",
+//        /* 0x21 */ "urn:epc:raw:",
+//        /* 0x22 */ "urn:epc:",
+//        /* 0x23 */ "urn:nfc:"
+//        };
+
 

@@ -19,7 +19,7 @@ import java.util.List;
  * Created by David on 17/04/2018.
  */
 
-public class CallToPhone extends Activity {
+public class CallToPhone extends Activity implements  GlobalChip{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,5 +55,13 @@ public class CallToPhone extends Activity {
             return;
         }
         startActivity(callIntent);
+    }
+
+    public  String getGlobalStringToScan(Chip chip){
+        if(chip.getAdditionalValues().get(0) != null){
+            String phone = chip.getAdditionalValues().get(0);
+            return phone;
+        }
+        return null;
     }
 }

@@ -14,7 +14,7 @@ import com.google.gson.Gson;
 
 import java.util.List;
 
-public class SendTextMessage extends Activity {
+public class SendTextMessage extends Activity implements  GlobalChip{
 
     private static final int SEND_SMS_CODE = 23;
 
@@ -25,13 +25,13 @@ public class SendTextMessage extends Activity {
         Gson gson = new Gson();
         Chip chip = gson.fromJson(chipAsString, Chip.class);
         String phone = getPhoneFromChip(chip);
-        String message = getMessegeFromChip(chip);
+        String message = getMessageFromChip(chip);
         permissionCheck();
         sendSms(phone,message);
         finish();
     }
 
-    private String getMessegeFromChip(Chip chip) {
+    private String getMessageFromChip(Chip chip) {
         List<String> addvalue = chip.getAdditionalValues();
         String phoneNumber =null;
         if(addvalue != null && !addvalue.isEmpty()){
@@ -82,5 +82,10 @@ public class SendTextMessage extends Activity {
         //And finally ask for the permission
         ActivityCompat.requestPermissions(this, new String[] { Manifest.permission.SEND_SMS },
                 SEND_SMS_CODE);
+    }
+
+    @Override
+    public String getGlobalStringToScan(Chip chip) {
+        return chip.getAdditionalValues().get(0) + "?body=" + chip.getAdditionalValues().get(1);
     }
 }
