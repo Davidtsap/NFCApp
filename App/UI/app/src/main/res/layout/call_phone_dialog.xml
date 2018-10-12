@@ -6,63 +6,73 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     tools:layout_editor_absoluteX="16dp"
-    tools:layout_editor_absoluteY="16dp">
+    tools:layout_editor_absoluteY="25dp">
 
     <TextView
         android:id="@+id/morePhoneInfo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="11dp"
-        android:layout_marginStart="5dp"
-        android:text="Choose from your contact or insert a number"
-        android:textColor="@android:color/holo_purple"
-        android:textSize="18sp"
+        android:layout_width="377dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="12dp"
+        android:text="Choose from your contact or insert a number:"
+        android:textColor="@android:color/holo_green_dark"
+        android:textSize="17sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/ButtonContactDialog"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/ButtonContactDialog"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="59dp"
+        android:layout_height="46dp"
         android:background="@android:drawable/ic_input_add"
-        app:layout_constraintBaseline_toBaselineOf="@+id/phoneTextDialog"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/phoneTextDialog" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/phoneTextDialog"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.284" />
 
     <EditText
         android:id="@+id/phoneTextDialog"
-        android:layout_width="0dp"
+        android:layout_width="273dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="78dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginStart="4dp"
         android:ems="10"
         android:inputType="phone"
         android:textColor="@android:color/background_dark"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/ButtonContactDialog"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.284" />
 
     <Button
         android:id="@+id/dialogOkButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="13dp"
-        android:layout_marginStart="5dp"
+        android:layout_width="84dp"
+        android:layout_height="48dp"
+        android:background="@drawable/empty_butten"
         android:text="OK"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/dialogCancelButton"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phoneTextDialog" />
 
     <Button
         android:id="@+id/dialogCancelButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="84dp"
+        android:layout_height="48dp"
+        android:background="@drawable/empty_butten"
         android:text="Cancel"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/dialogOkButton" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/dialogOkButton"
+        app:layout_constraintTop_toBottomOf="@+id/ButtonContactDialog"
+        app:layout_constraintVertical_bias="0.492" />
 
 </android.support.constraint.ConstraintLayout>

@@ -11,8 +11,8 @@
         android:id="@+id/textMessageOk"
         android:layout_width="84dp"
         android:layout_height="48dp"
-        android:text="OK"
         android:background="@drawable/empty_butten"
+        android:text="OK"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/textMessageCancel"
         app:layout_constraintHorizontal_bias="0.5"
@@ -23,8 +23,8 @@
         android:id="@+id/textMessageCancel"
         android:layout_width="84dp"
         android:layout_height="48dp"
-        android:text="Cancel"
         android:background="@drawable/empty_butten"
+        android:text="Cancel"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.526"
@@ -58,8 +58,8 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/textMessageEditText"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="16dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp" />
 
     <EditText
         android:id="@+id/textMessagePhoneNumber"
@@ -78,9 +78,11 @@
         android:layout_width="39dp"
         android:layout_height="37dp"
         android:background="@android:drawable/ic_input_add"
-        app:layout_constraintBottom_toTopOf="@+id/textMessageCancel"
-        app:layout_constraintTop_toBottomOf="@+id/textMessageEditText"
-        app:layout_constraintVertical_bias="0.522"
-        tools:layout_editor_absoluteX="250dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.905"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.851"
         tools:ignore="MissingConstraints" />
 </android.support.constraint.ConstraintLayout>

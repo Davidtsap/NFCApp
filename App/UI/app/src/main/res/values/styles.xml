@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
@@ -6,6 +6,7 @@
         <item name="colorPrimary">@android:color/holo_green_dark</item>
         <item name="colorPrimaryDark">@android:color/darker_gray</item>
         <item name="colorAccent">@android:color/holo_green_light</item>
+        <item name="actionBarTheme" tools:targetApi="lollipop">@android:style/Theme.Material.Light</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
