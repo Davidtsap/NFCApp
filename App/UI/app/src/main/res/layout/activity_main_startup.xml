@@ -10,28 +10,32 @@
 
     <Button
         android:id="@+id/btnRgister"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="309dp"
+        android:layout_height="64dp"
         android:layout_marginBottom="8dp"
         android:background="#0000"
-        app:layout_constraintBottom_toTopOf="@+id/btnLogin"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintStart_toStartOf="@+id/btnLogin"
-        app:layout_constraintTop_toBottomOf="@+id/btnExit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.82"
         tools:ignore="MissingConstraints" />
 
 
     <Button
         android:id="@+id/btnLogin"
-        android:layout_width="291dp"
-        android:layout_height="0dp"
+        android:layout_width="293dp"
+        android:layout_height="58dp"
         android:layout_marginBottom="25dp"
         android:background="#0000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnRgister"
+        app:layout_constraintVertical_bias="1.0"
         tools:ignore="MissingConstraints" />
 
 
@@ -45,13 +49,14 @@
         android:background="@drawable/exit"
         app:layout_constraintBottom_toTopOf="@+id/btnRgister"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.276" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="294dp"
         android:layout_height="131dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

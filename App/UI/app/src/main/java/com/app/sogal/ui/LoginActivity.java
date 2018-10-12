@@ -3,8 +3,11 @@ package com.app.sogal.ui;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -19,6 +22,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     EditText edEmail;
     EditText edPassword;
     Button btnLogIn;
+    Button btnForgotPass;
+    CheckBox checkBox;
 
     ServletApi servlet = new ServletApi();
 
@@ -29,12 +34,36 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         edEmail = (EditText)findViewById(R.id.edEmail);
         edPassword = (EditText)findViewById(R.id.edPassword);
+        edEmail.addTextChangedListener(watcher);
+        edPassword.addTextChangedListener(watcher);
         btnLogIn = (Button)findViewById(R.id.btnLogIn);
         btnLogIn.setOnClickListener(this);
-
+        btnLogIn.setEnabled(false);
+        btnForgotPass = (Button) findViewById(R.id.btnForgotPass);
+        btnForgotPass.setOnClickListener(this);
+        checkBox = (CheckBox) findViewById(R.id.checkBox);
+        checkBox.setOnClickListener(this);
 
     }
 
+    private final TextWatcher watcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+            if (edEmail.toString().trim().length() == 0 || edPassword.toString().trim().length() == 0) {
+                btnLogIn.setEnabled(false);
+            } else {
+                btnLogIn.setEnabled(true);
+            }
+        }
+    };
     @Override
     public void onClick(View view) {
         if(view == btnLogIn)
@@ -48,20 +77,30 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 else {
                     String email = edEmail.getText().toString();
                     String password = edPassword.getText().toString();
-                    String  tokenUser = servlet.userLogin(email,password);
-                    if(tokenUser != null){
-                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                        intent.putExtra("userToken", tokenUser);
-                        startActivity(intent);
+                    try {
+                        String tokenUser = servlet.userLogin(email, password);
+                        if (tokenUser != null) {
+                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                            intent.putExtra("userToken", tokenUser);
+                            startActivity(intent);
+                        }
                     }
-                    else{
-                        Toast.makeText(this,"email or password wrong",Toast.LENGTH_LONG).show();
+                    catch(Exception ex){
+                        Toast.makeText(this,ex.getMessage(),Toast.LENGTH_LONG).show();
                     }
                 }
             }
             else {
                 Toast.makeText(this, "Please fill all fields", Toast.LENGTH_LONG).show();
             }
+        }
+        if(view == btnForgotPass)
+        {
+            startActivity(new Intent(getApplicationContext(), ForgetPasswordActivity.class));
+        }
+        if(view ==checkBox)
+        {
+
         }
     }
 }

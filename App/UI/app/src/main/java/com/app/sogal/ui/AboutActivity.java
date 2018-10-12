@@ -10,20 +10,20 @@ import com.app.sogal.R;
 
 
 public class AboutActivity extends AppCompatActivity implements View.OnClickListener {
-    Button btnHamburger;
+    Button btnHome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
 
-        btnHamburger = (Button) findViewById(R.id.btnHamburger);
-        btnHamburger.setOnClickListener(this);
+        btnHome = (Button) findViewById(R.id.btnHome);
+        btnHome.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        if (v == btnHamburger)
+        if (v == btnHome)
         {
             startActivity(new Intent(getApplicationContext(), MainActivity.class));
         }

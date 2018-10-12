@@ -4,28 +4,49 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ui.AddNewUserChip"
     android:background="@drawable/top"
+    tools:context="ui.AddNewUserChip"
     tools:layout_editor_absoluteY="81dp">
-
-    <TextView
-        android:id="@+id/tvUserName6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="User Name"
-        app:layout_constraintStart_toStartOf="@+id/imvUserPic6"
-        app:layout_constraintTop_toBottomOf="@+id/imvUserPic6" />
 
     <ImageView
         android:id="@+id/imvUserPic6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="3dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/user_pic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.167"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/ic_launcher"
+        app:layout_constraintVertical_bias="0.034" />
+
+    <TextView
+        android:id="@+id/userName6"
+        android:layout_width="208dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="24dp"
+        android:text="hello "
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.137"
         tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/btnHome2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/home_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.017"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <android.support.constraint.Group
         android:id="@+id/group"
@@ -66,8 +87,8 @@
         android:id="@+id/ChipName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="30dp"
         android:layout_marginTop="171dp"
+        android:layout_marginEnd="30dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Chip Name"
@@ -79,14 +100,11 @@
         android:layout_width="0dp"
         android:layout_height="38dp"
         android:layout_marginBottom="82dp"
-        android:layout_marginTop="83dp"
         android:text="Chip Name:"
         android:textAlignment="center"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/textView7"
-        app:layout_constraintEnd_toEndOf="@+id/imvUserPic6"
-        app:layout_constraintStart_toStartOf="@+id/textView7"
-        app:layout_constraintTop_toTopOf="@+id/tvUserName6" />
+        app:layout_constraintStart_toStartOf="@+id/textView7" />
 
     <TextView
         android:id="@+id/textView7"
@@ -103,52 +121,11 @@
         android:id="@+id/spinner"
         android:layout_width="216dp"
         android:layout_height="43dp"
-        android:layout_marginBottom="30dp"
-        android:layout_marginEnd="29dp"
         android:layout_marginTop="31dp"
-        app:layout_constraintBottom_toTopOf="@+id/moreInfo"
+        android:layout_marginEnd="29dp"
+        android:layout_marginBottom="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ChipName" />
 
-    <Button
-        android:id="@+id/contact"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="10dp"
-        android:background="@android:drawable/ic_input_add"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/phoneNumber"
-        app:layout_constraintEnd_toEndOf="@+id/moreInfo"
-        app:layout_constraintStart_toEndOf="@+id/phoneNumber"
-        app:layout_constraintTop_toBottomOf="@+id/moreInfo" />
-
-    <TextView
-        android:id="@+id/moreInfo"
-        android:layout_width="0dp"
-        android:layout_height="37dp"
-        android:layout_marginBottom="105dp"
-        android:layout_marginEnd="33dp"
-        android:layout_marginStart="33dp"
-        android:layout_marginTop="104dp"
-        android:text="Choose from your contact or insert a number"
-        android:textSize="16sp"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/btnFinish"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ChipName"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <EditText
-        android:id="@+id/phoneNumber"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="7dp"
-        android:ems="10"
-        android:inputType="phone"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="@+id/btnFinish"
-        app:layout_constraintTop_toBottomOf="@+id/moreInfo" />
 
 </android.support.constraint.ConstraintLayout>

@@ -24,11 +24,11 @@ import java.util.List;
 
 public class ManageUserChips extends AppCompatActivity  implements View.OnClickListener {
     Button btnAddNewChip;
-    TextView tvUserName;
     ImageView imvUserPic;
     RadioGroup radioGroup;
     ListView chipListView;
     String radioText;
+    Button btnHome;
 
     ServletApi server = new ServletApi();
     ChipAdapter adapter;
@@ -37,10 +37,12 @@ public class ManageUserChips extends AppCompatActivity  implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manage_user_chips);
 
+        btnHome = (Button) findViewById(R.id.btnHome5);
+        btnHome.setOnClickListener(this);
+
         btnAddNewChip = (Button) findViewById(R.id.btnAddNewChip);
         btnAddNewChip.setOnClickListener(this);
 
-        tvUserName = (TextView) findViewById(R.id.tvUserName);
 
         imvUserPic = (ImageView) findViewById(R.id.imvUserPic);
 
@@ -59,6 +61,10 @@ public class ManageUserChips extends AppCompatActivity  implements View.OnClickL
         if (v == btnAddNewChip) {
             showScanOptions();
 
+        }
+        if (v == btnHome)
+        {
+            startActivity(new Intent(getApplicationContext(), MainActivity.class));
         }
     }
 
@@ -91,7 +97,9 @@ public class ManageUserChips extends AppCompatActivity  implements View.OnClickL
                 RadioButton radioButton = (RadioButton) radioGroup.findViewById(selectedId);
 
                 radioText = radioButton.getText().toString();
-                startActivity(new Intent(getApplicationContext(), AddNewUserChip.class));
+                Intent intent = new Intent(getApplicationContext(), AddNewUserChip.class);
+                intent.putExtra("chipType", radioText);
+                startActivity(intent);
             }
         });
         dialog.show();

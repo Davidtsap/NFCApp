@@ -60,8 +60,6 @@ public class AddNewUserChip extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_new_user_chip);
 
-        tvUserName = (TextView)findViewById(R.id.tvUserName6);
-
         imvUserPic = (ImageView)findViewById(R.id.imvUserPic6);
 
         ChipName = (EditText) findViewById(R.id.ChipName);

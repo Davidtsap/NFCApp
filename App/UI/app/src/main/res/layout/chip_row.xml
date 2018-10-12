@@ -4,15 +4,37 @@
 
     <TextView
         android:id="@+id/chipName"
-        android:layout_width="158dp"
+        android:layout_width="142dp"
         android:layout_height="29dp"
         android:text="chipName" />
 
     <TextView
         android:id="@+id/chipFunction"
-        android:layout_width="224dp"
-        android:layout_height="31dp"
-        android:layout_alignParentEnd="true"
+        android:layout_width="150dp"
+        android:layout_height="29dp"
         android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="92dp"
         android:text="TextView" />
+
+    <Button
+        android:id="@+id/btnEdit"
+        android:layout_width="40dp"
+        android:layout_height="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="293dp"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/edit_button" />
+
+    <Button
+        android:id="@+id/btnDelete"
+        android:layout_width="40dp"
+        android:layout_height="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="332dp"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/delete_button" />
 </RelativeLayout>

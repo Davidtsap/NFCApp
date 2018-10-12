@@ -39,7 +39,8 @@ import com.app.sogal.R;
         }
         else  if(v == btnExit)
         {
-
+            finish();
+            System.exit(0);
         }
     }
 }
