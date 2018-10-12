@@ -8,8 +8,8 @@
 
     <EditText
         android:id="@+id/URLtextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="267dp"
+        android:layout_height="63dp"
         android:layout_marginBottom="28dp"
         android:ems="10"
         android:inputType="textMultiLine"
@@ -24,11 +24,11 @@
         android:id="@+id/URLview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="53dp"
-        android:text="please insert URL"
-        android:textColor="@android:color/holo_purple"
+        android:layout_marginBottom="15dp"
+        android:text="Please insert URL:"
+        android:textColor="@android:color/holo_green_dark"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/URLtextView"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,19 +36,24 @@
 
     <Button
         android:id="@+id/URLOk"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="84dp"
+        android:layout_height="48dp"
         android:layout_marginEnd="17dp"
+        android:background="@drawable/empty_butten"
         android:text="OK"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/URLCancel"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/URLtextView"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/URLCancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="84dp"
+        android:layout_height="48dp"
         android:layout_marginEnd="18dp"
+        android:background="@drawable/empty_butten"
         android:text="Cancel"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
