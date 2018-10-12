@@ -13,7 +13,7 @@ import com.app.sogal.R;
 
 import java.util.ArrayList;
 
-public class URLInfo  extends AppCompatActivity {
+public class URLInfo  extends Activity {
 
     EditText URL;
     ArrayList<String> additionalValue = new ArrayList<>();

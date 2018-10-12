@@ -13,6 +13,15 @@ public class MapFunction {
 
     public static final Map<String, Class> MapInfo = createInfoMap();
     public static final Map<String, Class<? extends GlobalChip>> MapGlobalString = createMap();
+    public static final Map<String, Class> MapInternalAction = createInternalMap();
+
+    private static Map<String,Class> createInternalMap() {
+        Map<String,Class> myMap = new HashMap ();
+        myMap.put("CallToPhone", CallToPhone.class);
+        myMap.put("SendTextMessage", SendTextMessage.class);
+        myMap.put("URLForwarding", URLForwording.class);
+        return  myMap;
+    }
 
     private static Map<String, Class> createInfoMap()
     {

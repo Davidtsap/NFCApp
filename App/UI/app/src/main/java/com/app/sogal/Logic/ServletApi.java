@@ -20,6 +20,7 @@ public class ServletApi {
     GetRequest GetRequest;
     PostRequest postRequst;
     PutRequest putRequest;
+    DeleteRequest deleteRequest;
 
 //    public String getNewNfcChipNumber() {
 //        String nfcNumber =null;
@@ -104,9 +105,22 @@ public class ServletApi {
         return newChip;
     }
 
-    public boolean deleteUserChip(Chip chip) {
+    public String deleteUserChip(Chip chip) {
+        String returnMsg;
+        String jsonChip = null;
+        deleteRequest= new DeleteRequest();
+        Gson gson =new Gson();
+        try {
+            jsonChip = GetRequest.execute("chips/" + chip.getSerialNumber()).get();
+            chip = gson.fromJson(jsonChip,Chip.class);
+            returnMsg = "success";
+        } catch (InterruptedException e) {
+            returnMsg = jsonChip;
+        } catch (ExecutionException e) {
+            returnMsg = jsonChip;
+        }
+        return returnMsg;
 
-        return true;
     }
 
     public Chip updateUserChip(Chip chip) throws Exception {
@@ -144,7 +158,7 @@ public class ServletApi {
         Gson gson =new Gson();
         Chip chip =null;
         try {
-            jsonChip = GetRequest.execute("getAction&NFCNumber=" + ID).get();
+            jsonChip = GetRequest.execute("chips/" + ID).get();
             chip = gson.fromJson(jsonChip,Chip.class);
         } catch (InterruptedException e) {
             e.printStackTrace();

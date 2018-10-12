@@ -19,10 +19,13 @@ import android.widget.Toast;
 
 import com.app.sogal.Data.Chip;
 import com.app.sogal.Logic.ServletApi;
+import com.app.sogal.OnlyAppUserAction.GlobalChip;
 import com.google.gson.Gson;
 
 import java.io.UnsupportedEncodingException;
 
+import static com.app.sogal.Data.MapFunction.MapGlobalString;
+import static com.app.sogal.Data.MapFunction.MapInternalAction;
 
 
 public class ReadNfcTag extends Activity {
@@ -112,19 +115,20 @@ public class ReadNfcTag extends Activity {
         setIntent(intent);
         readFromIntent(intent);
         Chip chip  = null;
-        //chip = server.getActionByID(nfcMessege);
+        chip = server.getActionByID(nfcMessege);
         Toast.makeText(context, nfcMessege, Toast.LENGTH_LONG).show();
 
-//        try {
-//            Intent actionIntent = new Intent(getApplicationContext(), Class.forName("com.app.sogal.phone." + chip.getAction()));
-//            Gson gson = new Gson();
-//            String chipJson = gson.toJson(chip);
-//            actionIntent.putExtra("Chip", chipJson);
-//            startActivity(actionIntent);
-//            finish();
-//        } catch (ClassNotFoundException e) {
-//            e.printStackTrace();
-//        }
+        try {
+            Class classChip = MapInternalAction.get(chip.getAction());
+            Intent actionIntent = new Intent(getApplicationContext(), classChip);
+            Gson gson = new Gson();
+            String chipJson = gson.toJson(chip);
+            actionIntent.putExtra("Chip", chipJson);
+            startActivity(actionIntent);
+            finish();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         if (NfcAdapter.ACTION_TAG_DISCOVERED.equals(intent.getAction())) {
             myTag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
         }
