@@ -10,7 +10,7 @@ import java.net.URL;
 
 import static org.apache.http.HttpHeaders.USER_AGENT;
 
-public class GetRequst extends AsyncTask<String, Integer, String> {
+public class GetRequest extends AsyncTask<String, Integer, String> {
 
     private String targetURL = "https://smartchip.herokuapp.com/api/";
     @Override

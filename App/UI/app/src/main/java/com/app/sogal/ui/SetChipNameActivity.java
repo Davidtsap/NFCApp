@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.app.sogal.Data.Chip;
-import com.app.sogal.Logic.PostRequst;
+//import com.app.sogal.Logic.PostRequst;
 import com.app.sogal.R;
 import com.google.gson.Gson;
 
@@ -19,7 +19,7 @@ public class SetChipNameActivity extends AppCompatActivity implements View.OnCli
     ImageView imvUserPic;
     EditText edtChipName;
     Button btnSave;
-    PostRequst postRequst = new PostRequst();
+   // PostRequst postRequst = new PostRequst();
     Chip inChip;
 
 
@@ -46,10 +46,10 @@ public class SetChipNameActivity extends AppCompatActivity implements View.OnCli
             gson.toJson(inChip);
             //http.executePost("name Of Fuction" ,Gson gsonObj (gson.toJson(inChip)));
             //postRequst.execute("updateNFCMethod",gson.toJson(inChip).toString());
-            postRequst.execute("updateNFCMethod","{\n" +
-                    "\t\"NFCNumber\":\"NFCApp-1#\",\n" +
-                    "\t\"Action\":\"CallToPhone\"\n" +
-                    "}");
+//            postRequst.execute("updateNFCMethod","{\n" +
+//                    "\t\"NFCNumber\":\"NFCApp-1#\",\n" +
+//                    "\t\"Action\":\"CallToPhone\"\n" +
+//                    "}");
             startActivity(new Intent(getApplicationContext(), AddNewUserChip.class));
         }
         
