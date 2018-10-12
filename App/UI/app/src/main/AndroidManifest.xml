@@ -80,7 +80,8 @@
             android:name=".MoreInfoForAction.URLInfo"
             android:theme="@style/Theme.AppCompat.Dialog" />
         <activity android:name=".ui.ResetPasswordActivity" />
-        <activity android:name=".ui.ForgetPasswordActivity"></activity>
+        <activity android:name=".ui.ForgetPasswordActivity" />
+        <activity android:name=".ui.EditChip"></activity>
     </application>
 
 </manifest>

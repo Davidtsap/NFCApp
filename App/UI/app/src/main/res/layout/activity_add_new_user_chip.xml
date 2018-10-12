@@ -87,8 +87,8 @@
         android:id="@+id/ChipName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="171dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginTop="188dp"
+        android:layout_marginEnd="28dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Chip Name"
@@ -99,7 +99,7 @@
         android:id="@+id/textView6"
         android:layout_width="0dp"
         android:layout_height="38dp"
-        android:layout_marginBottom="82dp"
+        android:layout_marginBottom="72dp"
         android:text="Chip Name:"
         android:textAlignment="center"
         android:textSize="16sp"
@@ -115,15 +115,15 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/spinner"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/spinner" />
+        app:layout_constraintTop_toTopOf="@+id/spinner"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="216dp"
         android:layout_height="43dp"
-        android:layout_marginTop="31dp"
-        android:layout_marginEnd="29dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="28dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ChipName" />
 
