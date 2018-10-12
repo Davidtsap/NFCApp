@@ -85,7 +85,7 @@ public class AddNewUserChip extends AppCompatActivity implements View.OnClickLis
             }
         }
         if(v == btnHome){
-            startActivity(new Intent(getApplicationContext()MainActivity.class));
+            startActivity(new Intent(getApplicationContext(),MainActivity.class));
         }
     }
 
