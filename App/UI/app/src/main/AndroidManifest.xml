@@ -79,6 +79,7 @@
         <activity android:name=".ui.ResetPasswordActivity" />
         <activity android:name=".ui.ForgetPasswordActivity" />
         <activity android:name=".ui.EditChip"></activity>
+        <activity android:name=".OnlyAppUserAction.URLForwording"/>
     </application>
 
 </manifest>

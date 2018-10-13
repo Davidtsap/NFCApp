@@ -114,7 +114,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 intent.putExtra("userToken", token);
                 startActivity(intent);
             } catch (Exception e) {
-                Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "could not register user ", Toast.LENGTH_LONG).show();
 
 
             }
