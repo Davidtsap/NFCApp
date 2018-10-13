@@ -32,6 +32,11 @@ public class ManageUserAccountActivity extends AppCompatActivity implements View
     Button btnEdit;
     User user;
     Button btnLoadPic;
+    Button btnUserInfo;
+    Button btnPassInfo;
+    Button btnEmailInfo;
+    Button btnPhoneInfo;
+    Button btnImageInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +52,7 @@ public class ManageUserAccountActivity extends AppCompatActivity implements View
         tvUserName = (TextView) findViewById(R.id.tvUserName3);
 
         imvUserPic = (ImageView) findViewById(R.id.imvUserPic2);
+        //imvUserPic.setImageDrawable(MainActivity.user.getImage());
 
         btnSaveChanges = (Button) findViewById(R.id.btnSaveChanges);
         btnSaveChanges.setOnClickListener(this);
@@ -62,6 +68,17 @@ public class ManageUserAccountActivity extends AppCompatActivity implements View
         edtEmail2.setText(user.getEmail());
         edtPhone2.setText(user.getPhone());
         //edtPassword2.setText(user.getPassword());
+
+        btnUserInfo = (Button)findViewById(R.id.btnUserInfo);
+        btnUserInfo.setOnClickListener(this);
+        btnPassInfo = (Button)findViewById(R.id.btnPassInfo);
+        btnPassInfo.setOnClickListener(this);
+        btnEmailInfo = (Button)findViewById(R.id.btnEmailInfo);
+        btnEmailInfo.setOnClickListener(this);
+        btnPhoneInfo = (Button)findViewById(R.id.btnPhoneInfo);
+        btnPhoneInfo.setOnClickListener(this);
+        btnImageInfo = (Button)findViewById(R.id.btnImageInfo);
+        btnImageInfo.setOnClickListener(this);
 
     }
 
@@ -82,6 +99,28 @@ public class ManageUserAccountActivity extends AppCompatActivity implements View
                     android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
 
             startActivityForResult(i, RESULT_LOAD_IMAGE);
+        }
+        if(v == btnUserInfo)
+        {
+            Toast.makeText(this, "Username must contain at least 3 characters", Toast.LENGTH_LONG).show();
+
+        }
+        if(v == btnPassInfo)
+        {
+            Toast.makeText(this, "Password must contain at least 8 characters", Toast.LENGTH_LONG).show();
+
+        }
+        if(v == btnEmailInfo)
+        {
+            Toast.makeText(this, "You must enter a valid email with @ that is not already registered to the app", Toast.LENGTH_LONG).show();
+        }
+        if(v == btnPhoneInfo)
+        {
+            Toast.makeText(this, "Phone must be formatted as: xxx - xxxxxxx", Toast.LENGTH_LONG).show();
+        }
+        if(v == btnImageInfo)
+        {
+            Toast.makeText(this, "Image must be PNG / JPEG", Toast.LENGTH_LONG).show();
         }
     }
 

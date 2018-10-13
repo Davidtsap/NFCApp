@@ -7,9 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.app.sogal.Logic.ServletApi;
 import com.app.sogal.R;
 
 public class ContactUsActivity extends AppCompatActivity implements View.OnClickListener {
@@ -17,6 +19,10 @@ public class ContactUsActivity extends AppCompatActivity implements View.OnClick
     Button btnSend;
     EditText edSubject;
     TextInputEditText tinMessage;
+    ImageView imvUserPic;
+    TextView tvUserName;
+
+    ServletApi server = new ServletApi();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +31,11 @@ public class ContactUsActivity extends AppCompatActivity implements View.OnClick
 
         btnHome = (Button) findViewById(R.id.btnHome3);
         btnHome.setOnClickListener(this);
+
+        imvUserPic = (ImageView) findViewById(R.id.imvUserPic3);
+        //imvUserPic.setImageDrawable(MainActivity.user.getImage());
+        tvUserName = (TextView) findViewById(R.id.userName2);
+        tvUserName.setText("Hello " + MainActivity.user.getName());
 
         btnSend = (Button)findViewById(R.id.btnSend);
         btnSend.setOnClickListener(this);
@@ -40,11 +51,15 @@ public class ContactUsActivity extends AppCompatActivity implements View.OnClick
         {
             startActivity(new Intent(getApplicationContext(), MainActivity.class));
         }
-        if(v == btnSend)
-        {
-
-            Toast.makeText(getApplicationContext(),"Your message was send", Toast.LENGTH_LONG).show();
-            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        if(v == btnSend) {
+            try {
+                server.sendContactUsEmail(edSubject.getText().toString(), tinMessage.getText().toString());
+                Toast.makeText(getApplicationContext(), "Your message was send", Toast.LENGTH_LONG).show();
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            }
+            catch (Exception ex){
+                Toast.makeText(getApplicationContext(), "Error with send message, please try again..", Toast.LENGTH_LONG).show();
+            }
         }
     }
 }

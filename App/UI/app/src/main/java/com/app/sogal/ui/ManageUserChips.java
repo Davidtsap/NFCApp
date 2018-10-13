@@ -25,6 +25,7 @@ import java.util.List;
 public class ManageUserChips extends AppCompatActivity  implements View.OnClickListener {
     Button btnAddNewChip;
     ImageView imvUserPic;
+    TextView tvUserName;
     RadioGroup radioGroup;
     ListView chipListView;
     String radioText;
@@ -43,8 +44,11 @@ public class ManageUserChips extends AppCompatActivity  implements View.OnClickL
         btnAddNewChip = (Button) findViewById(R.id.btnAddNewChip);
         btnAddNewChip.setOnClickListener(this);
 
+        tvUserName = (TextView) findViewById(R.id.userName4);
+        tvUserName.setText("Hello " + MainActivity.user.getName());
 
         imvUserPic = (ImageView) findViewById(R.id.imvUserPic);
+        //imvUserPic.setImageDrawable(MainActivity.user.getImage());
 
         chipListView = (ListView)findViewById(R.id.ChipList);
         List<Chip> chipList = getListOfChip(MainActivity.user);

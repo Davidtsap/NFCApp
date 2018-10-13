@@ -9,12 +9,12 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_marginBottom="244dp"
-        android:layout_marginEnd="82dp"
+        android:layout_width="230dp"
+        android:layout_height="65dp"
         android:layout_marginStart="82dp"
         android:layout_marginTop="249dp"
+        android:layout_marginEnd="82dp"
+        android:layout_marginBottom="244dp"
         android:text="Please put your phone near nfc Tag"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

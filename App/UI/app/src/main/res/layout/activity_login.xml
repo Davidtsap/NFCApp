@@ -10,7 +10,7 @@
 
     <EditText
         android:id="@+id/edEmail"
-        android:layout_width="251dp"
+        android:layout_width="231dp"
         android:layout_height="56dp"
         android:layout_gravity="center"
         android:autoText="false"
@@ -20,15 +20,15 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/edPassword"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.646"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/guideline3"
-        app:layout_constraintVertical_bias="0.931"
+        app:layout_constraintVertical_bias="0.93"
         tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/edPassword"
-        android:layout_width="253dp"
+        android:layout_width="234dp"
         android:layout_height="55dp"
         android:layout_gravity="center"
         android:ems="10"
@@ -37,7 +37,7 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.656"
+        app:layout_constraintHorizontal_bias="0.513"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.712"
@@ -45,17 +45,17 @@
 
     <Button
         android:id="@+id/btnLogIn"
-        android:layout_width="290dp"
+        android:layout_width="270dp"
         android:layout_height="56dp"
         android:layout_gravity="center"
         android:background="#0000"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.521"
+        app:layout_constraintHorizontal_bias="0.359"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.852"
+        app:layout_constraintVertical_bias="0.841"
         tools:ignore="MissingConstraints" />
 
     <android.support.constraint.Group
@@ -77,10 +77,10 @@
         android:background="#0000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.871"
+        app:layout_constraintHorizontal_bias="0.937"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.932"
+        app:layout_constraintVertical_bias="0.93"
         tools:ignore="MissingConstraints" />
 
     <CheckBox
@@ -90,10 +90,36 @@
         android:background="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.107"
+        app:layout_constraintHorizontal_bias="0.076"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.926"
+        app:layout_constraintVertical_bias="0.925"
         tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/btnEmailInfo"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="16dp"
+        android:background="#0000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.557" />
+
+    <Button
+        android:id="@+id/btnPassInfo"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="16dp"
+        android:background="#0000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.705" />
 
 </android.support.constraint.ConstraintLayout>

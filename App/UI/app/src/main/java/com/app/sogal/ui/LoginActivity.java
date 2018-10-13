@@ -24,6 +24,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     Button btnLogIn;
     Button btnForgotPass;
     CheckBox checkBox;
+    Button btnEmailInfo;
+    Button btnPassInfo;
 
     ServletApi servlet = new ServletApi();
 
@@ -43,7 +45,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         btnForgotPass.setOnClickListener(this);
         checkBox = (CheckBox) findViewById(R.id.checkBox);
         checkBox.setOnClickListener(this);
-
+        btnEmailInfo = (Button) findViewById(R.id.btnEmailInfo);
+        btnEmailInfo.setOnClickListener(this);
+        btnPassInfo = (Button) findViewById(R.id.btnPassInfo);
+        btnPassInfo.setOnClickListener(this);
     }
 
     private final TextWatcher watcher = new TextWatcher() {
@@ -101,6 +106,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if(view ==checkBox)
         {
 
+        }
+        if(view == btnEmailInfo)
+        {
+            Toast.makeText(this, "You must enter a valid email with @ that registered to the app", Toast.LENGTH_LONG).show();
+        }
+        if (view == btnPassInfo)
+        {
+            Toast.makeText(this, "Password must contain at least 8 characters", Toast.LENGTH_LONG).show();
         }
     }
 }

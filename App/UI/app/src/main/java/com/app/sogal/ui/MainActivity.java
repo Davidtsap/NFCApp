@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.app.sogal.Data.User;
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button btnContactUs;
     Button btnLogOut;
     TextView userName;
+    ImageView imUserPic;
     ServletApi servlet = new ServletApi();
     public static User user;
 
@@ -47,11 +49,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnLogOut.setOnClickListener(this);
 
         userName = (TextView) findViewById(R.id.userName);
+        imUserPic = (ImageView) findViewById(R.id.imvUserPic7);
+        //imUserPic.setImageDrawable(MainActivity.user.getImage());
 
         String userToken;
         if(user == null || getIntent().hasExtra("userToken" )){
             userToken = getIntent().getStringExtra("userToken");
             getUserDetails(userToken);
+        }
+        else if (user != null)
+        {
+            userName.setText("Hello " +user.getName());
         }
 
     }

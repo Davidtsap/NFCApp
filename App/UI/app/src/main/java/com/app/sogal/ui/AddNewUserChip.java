@@ -49,7 +49,11 @@ public class AddNewUserChip extends AppCompatActivity implements View.OnClickLis
         setContentView(R.layout.activity_add_new_user_chip);
 
         btnHome = (Button)findViewById(R.id.btnHome2);
-        btnHome.setOnClickListener(this);        imvUserPic = (ImageView)findViewById(R.id.imvUserPic6);
+        btnHome.setOnClickListener(this);
+        imvUserPic = (ImageView)findViewById(R.id.imvUserPic6);
+        //imvUserPic.setImageDrawable(MainActivity.user.getImage());
+        tvUserName = (TextView) findViewById(R.id.userName6);
+        tvUserName.setText("Hello "+ MainActivity.user.getName());
 
         ChipName = (EditText) findViewById(R.id.ChipName);
 

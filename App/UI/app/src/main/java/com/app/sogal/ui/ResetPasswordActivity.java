@@ -5,12 +5,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.app.sogal.R;
 
 public class ResetPasswordActivity extends AppCompatActivity implements View.OnClickListener {
     Button btn_save;
     Button btnCancel;
+    ImageView imvUserPic;
+    TextView tvUserName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +25,11 @@ public class ResetPasswordActivity extends AppCompatActivity implements View.OnC
         btn_save.setOnClickListener(this);
         btnCancel = (Button) findViewById(R.id.btnCancel);
         btnCancel.setOnClickListener(this);
+
+        imvUserPic = (ImageView) findViewById(R.id.imvUserPic);
+        //imvUserPic.setImageDrawable(MainActivity.user.getImage());
+        tvUserName = (TextView) findViewById(R.id.userName5);
+        tvUserName.setText("Hello " + MainActivity.user.getName());
     }
 
     @Override

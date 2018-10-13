@@ -31,6 +31,11 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     User inputUser;
     Button btnLoadPic;
     ImageView ImvUserPic;
+    Button btnUserInfo;
+    Button btnPassInfo;
+    Button btnEmailInfo;
+    Button btnPhoneInfo;
+    Button btnImageInfo;
 
     ServletApi server = new ServletApi();
 
@@ -58,6 +63,19 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         ImvUserPic = (ImageView) findViewById(R.id.ImvUserPic);
 
+        btnUserInfo = (Button)findViewById(R.id.btnUserInfo);
+        btnUserInfo.setOnClickListener(this);
+        btnPassInfo = (Button)findViewById(R.id.btnPassInfo);
+        btnPassInfo.setOnClickListener(this);
+        btnEmailInfo = (Button)findViewById(R.id.btnEmailInfo);
+        btnEmailInfo.setOnClickListener(this);
+        btnPhoneInfo = (Button)findViewById(R.id.btnPhoneInfo);
+        btnPhoneInfo.setOnClickListener(this);
+        btnImageInfo = (Button)findViewById(R.id.btnImageInfo);
+        btnImageInfo.setOnClickListener(this);
+
+
+
     }
 
     private final TextWatcher watcher = new TextWatcher() {
@@ -83,6 +101,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View v) {
         if (v==btnSignUp)
         {
+            inputUser = new User();
             inputUser.setName(edtUserName.getText().toString());
             String pass = (edtPassword.getText().toString());
             inputUser.setEmail(edtEmail.getText().toString());
@@ -90,8 +109,10 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             Gson gson = new Gson();
             gson.toJson(inputUser);
             try {
-                server.addNewUser(inputUser,pass);
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                String token = server.addNewUser(inputUser,pass);
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                intent.putExtra("userToken", token);
+                startActivity(intent);
             } catch (Exception e) {
                 Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
 
@@ -107,6 +128,28 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
 
             startActivityForResult(i, RESULT_LOAD_IMAGE);
+        }
+        if(v == btnUserInfo)
+        {
+            Toast.makeText(this, "Username must contain at least 3 characters", Toast.LENGTH_LONG).show();
+
+        }
+        if(v == btnPassInfo)
+        {
+            Toast.makeText(this, "Password must contain at least 8 characters", Toast.LENGTH_LONG).show();
+
+        }
+        if(v == btnEmailInfo)
+        {
+            Toast.makeText(this, "You must enter a valid email with @ that is not already registered to the app", Toast.LENGTH_LONG).show();
+        }
+        if(v == btnPhoneInfo)
+        {
+            Toast.makeText(this, "Phone must be formatted as: xxx - xxxxxxx", Toast.LENGTH_LONG).show();
+        }
+        if(v == btnImageInfo)
+        {
+            Toast.makeText(this, "Image must be PNG / JPEG", Toast.LENGTH_LONG).show();
         }
     }
 
