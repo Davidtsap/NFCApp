@@ -51,17 +51,26 @@ public class EditChip extends AppCompatActivity implements View.OnClickListener,
         btnCancel = (Button) findViewById(R.id.btnCancel);
         btnCancel.setOnClickListener(this);
 
+        tvChipName.setText(chip.getChipName());
+        additionalValue = chip.getAdditionalValues();
         ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, getListOfFunctions());
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
     }
 
-
     private List<String> getListOfFunctions() {
         ArrayList<String> list =  new ArrayList<String>();
-        list.add("none");
-        list.addAll(MapFunction.MapInfo.keySet());
+        for(String str : MapFunction.MapInfo.keySet()){
+            if(str.equalsIgnoreCase(chip.getAction())){
+                list.add(str);
+            }
+        }
+        for(String str : MapFunction.MapInfo.keySet()){
+            if(!str.equalsIgnoreCase(chip.getAction())){
+                list.add(str);
+            }
+        }
         return list;
     }
 
@@ -114,6 +123,7 @@ public class EditChip extends AppCompatActivity implements View.OnClickListener,
     private void showMoreInfo(String function) {
         if(!function.equalsIgnoreCase("none")) {
             Intent intent = new Intent(getApplicationContext(), MapFunction.MapInfo.get(function));
+            intent.putStringArrayListExtra("additionalValue",(ArrayList)additionalValue);
             startActivityForResult(intent, 0);
         }
     }
@@ -129,7 +139,7 @@ public class EditChip extends AppCompatActivity implements View.OnClickListener,
             if (resultCode == Activity.RESULT_OK) {
                 System.out.println("in on ActivityResult");
                 Bundle bundle = data.getExtras();
-                additionalValue = (ArrayList<String>) bundle.getStringArrayList("additionalValue");
+                additionalValue = (ArrayList<String>) bundle.getSerializable("additionalValue");
             }
         }
     }

@@ -48,10 +48,17 @@ public class PostRequest extends AsyncTask<String, Integer, ServerAnswer> {
                     response.append(inputLine);
                 }
                 in.close();
-
-                // print result
+                ServerAnswer answer = new ServerAnswer();
+                if(con.getHeaderFields().containsKey("x-auth-token"))
+                {
+                    String token = con.getHeaderFields().get("x-auth-token").get(0);
+                    answer.setToken(token);
+                    // print result
+                }
+                answer.setResponseCode(HttpURLConnection.HTTP_OK);
+                answer.setMessage(response.toString());
                 System.out.println(response.toString());
-                return new ServerAnswer(HttpURLConnection.HTTP_OK,response.toString());
+                return answer;
 
             } else if(responseCode == HttpURLConnection.HTTP_BAD_REQUEST){
                 BufferedReader in = new BufferedReader(new InputStreamReader(

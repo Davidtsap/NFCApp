@@ -23,8 +23,8 @@ public class GetRequest extends AsyncTask<String, Integer, String> {
             } catch (ProtocolException e) {
                 e.printStackTrace();
             }
-            con.setRequestProperty("User-Agent", USER_AGENT);
-            if(strings[1] != null){
+           // con.setRequestProperty("User-Agent", USER_AGENT);
+            if(strings.length == 2){
                 con.setRequestProperty("x-auth-token",strings[1]);
             }
             int responseCode = con.getResponseCode();

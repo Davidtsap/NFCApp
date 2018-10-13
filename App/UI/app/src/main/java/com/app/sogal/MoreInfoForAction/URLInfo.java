@@ -12,6 +12,7 @@ import android.widget.EditText;
 import com.app.sogal.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class URLInfo  extends Activity {
 
@@ -50,6 +51,11 @@ public class URLInfo  extends Activity {
                 finish();
             }
         });
+
+        if(getIntent().hasExtra("additionalValue")){
+            List<String> temp1list = (List <String>) getIntent().getSerializableExtra("additionalValue");
+            URL.setText(temp1list.get(0));
+        }
     }
 
 }
