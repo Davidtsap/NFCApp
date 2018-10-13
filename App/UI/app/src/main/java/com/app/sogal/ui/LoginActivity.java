@@ -1,6 +1,7 @@
 package com.app.sogal.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -18,7 +19,7 @@ import com.app.sogal.R;
 
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
-
+    String userEmail,userPassword;
     EditText edEmail;
     EditText edPassword;
     Button btnLogIn;
@@ -26,6 +27,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     CheckBox checkBox;
     Button btnEmailInfo;
     Button btnPassInfo;
+    SharedPreferences loginPreferences;
+    SharedPreferences.Editor loginPrefsEditor;
+    Boolean saveLogin;
 
     ServletApi servlet = new ServletApi();
 
@@ -43,12 +47,23 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         btnLogIn.setEnabled(false);
         btnForgotPass = (Button) findViewById(R.id.btnForgotPass);
         btnForgotPass.setOnClickListener(this);
-        checkBox = (CheckBox) findViewById(R.id.checkBox);
-        checkBox.setOnClickListener(this);
         btnEmailInfo = (Button) findViewById(R.id.btnEmailInfo);
         btnEmailInfo.setOnClickListener(this);
         btnPassInfo = (Button) findViewById(R.id.btnPassInfo);
         btnPassInfo.setOnClickListener(this);
+
+        checkBox = (CheckBox) findViewById(R.id.checkBox);
+        loginPreferences = getSharedPreferences("loginPrefs", MODE_PRIVATE);
+        loginPrefsEditor = loginPreferences.edit();
+        loginPrefsEditor.apply();
+
+
+        saveLogin = loginPreferences.getBoolean("saveLogin", false);
+        if (saveLogin) {
+            edEmail.setText(loginPreferences.getString("username", ""));
+            edPassword.setText(loginPreferences.getString("password", ""));
+            checkBox.setChecked(true);
+        }
     }
 
     private final TextWatcher watcher = new TextWatcher() {
@@ -85,6 +100,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     try {
                         String tokenUser = servlet.userLogin(email, password);
                         if (tokenUser != null) {
+                            if (checkBox.isChecked()) {
+                                loginPrefsEditor.putBoolean("saveLogin", true);
+                                loginPrefsEditor.putString("username", edEmail.getText().toString());
+                                loginPrefsEditor.putString("password", edPassword.getText().toString());
+                                loginPrefsEditor.commit();
+                            } else {
+                                loginPrefsEditor.clear();
+                                loginPrefsEditor.commit();
+                            }
                             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                             intent.putExtra("userToken", tokenUser);
                             startActivity(intent);
@@ -102,10 +126,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if(view == btnForgotPass)
         {
             startActivity(new Intent(getApplicationContext(), ForgetPasswordActivity.class));
-        }
-        if(view ==checkBox)
-        {
-
         }
         if(view == btnEmailInfo)
         {
