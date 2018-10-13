@@ -155,8 +155,10 @@ public class AddNewUserChip extends AppCompatActivity implements View.OnClickLis
 
     private void showMoreInfo(String function) {
         if(!function.equalsIgnoreCase("none")) {
-            Intent intent = new Intent(getApplicationContext(), MapFunction.MapInfo.get(function));
-            startActivityForResult(intent, 0);
+            if(MapFunction.MapInfo.containsKey(function)) {
+                Intent intent = new Intent(getApplicationContext(), MapFunction.MapInfo.get(function));
+                startActivityForResult(intent, 0);
+            }
         }
     }
 

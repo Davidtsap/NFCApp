@@ -238,19 +238,18 @@ public class ServletApi {
     }
 
 
-    public void sendContactUsEmail(String subject, String body) throws Exception {
+    public void sendContactUsEmail(String subject, String body ,String token) throws Exception {
         postRequst = new PostRequest();
         ServerAnswer answer;
         Gson gson = new Gson();
-        String token = null;
         try {
             JsonObject innerObject = new JsonObject();
             innerObject.addProperty("subject",subject);
-            innerObject.addProperty("body" , body);
-            answer = postRequst.execute("email" ,innerObject.toString()).get();
+            innerObject.addProperty("text" , body);
+            answer = postRequst.execute("emails/contact" ,innerObject.toString(),token).get();
             if(answer!=null){
                 if(answer.getResponseCode() == 200) {
-                    token = answer.getToken();
+                    return ;
                 }
                 else if(answer.getResponseCode() == 400){
                     throw new Exception(answer.getMessage());

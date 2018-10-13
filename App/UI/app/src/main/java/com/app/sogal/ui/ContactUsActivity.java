@@ -2,6 +2,7 @@ package com.app.sogal.ui;
 
 import android.content.Intent;
 import android.support.design.widget.TextInputEditText;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -18,7 +19,7 @@ public class ContactUsActivity extends AppCompatActivity implements View.OnClick
     Button btnHome;
     Button btnSend;
     EditText edSubject;
-    TextInputEditText tinMessage;
+    TextInputLayout tinMessage;
     ImageView imvUserPic;
     TextView tvUserName;
 
@@ -42,7 +43,7 @@ public class ContactUsActivity extends AppCompatActivity implements View.OnClick
 
         edSubject = (EditText) findViewById(R.id.edSubject);
 
-//        tinMessage = (TextInputEditText) findViewById(R.id.tinMessage);
+        tinMessage = (TextInputLayout) findViewById(R.id.tinMessage);
     }
 
     @Override
@@ -53,7 +54,9 @@ public class ContactUsActivity extends AppCompatActivity implements View.OnClick
         }
         if(v == btnSend) {
             try {
-                server.sendContactUsEmail(edSubject.getText().toString(), tinMessage.getText().toString());
+                String hey = edSubject.getText().toString();
+                String body =  tinMessage.getEditText().getText().toString();
+                server.sendContactUsEmail(edSubject.getText().toString(), tinMessage.getEditText().getText().toString(),MainActivity.user.getToken());
                 Toast.makeText(getApplicationContext(), "Your message was send", Toast.LENGTH_LONG).show();
                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
             }

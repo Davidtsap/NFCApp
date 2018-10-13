@@ -39,6 +39,7 @@ public class ChipAdapter  extends ArrayAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
         final int pos = position;
+        Chip in = (Chip)chipList.get(position);
         if (convertView == null) {
             convertView = inflater.inflate(R.layout.chip_row,parent,false);
 // inflate custom layout called row
@@ -47,17 +48,22 @@ public class ChipAdapter  extends ArrayAdapter {
             holder.function =(TextView) convertView.findViewById(R.id.chipFunction);
             holder.btnDelete =(Button) convertView.findViewById(R.id.btnDelete);
             holder.btnEdit = (Button) convertView.findViewById(R.id.btnEdit);
-            holder.btnEdit.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent  = new Intent(context,EditChip.class);
-                    Gson gson = new Gson();
-                    Chip in = (Chip)chipList.get(pos);
-                    String chipString = gson.toJson(in);
-                    intent.putExtra("chip",chipString);
-                    context.startActivity(intent);
-                }
-            });
+            if(in.isGlobal())
+            {
+                holder.btnEdit.setVisibility(View.INVISIBLE);
+            }else {
+                holder.btnEdit.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(context, EditChip.class);
+                        Gson gson = new Gson();
+                        Chip in = (Chip) chipList.get(pos);
+                        String chipString = gson.toJson(in);
+                        intent.putExtra("chip", chipString);
+                        context.startActivity(intent);
+                    }
+                });
+            }
             holder.btnDelete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -73,7 +79,7 @@ public class ChipAdapter  extends ArrayAdapter {
         {
             holder = (ViewHolder)convertView.getTag();
         }
-        Chip in = (Chip)chipList.get(position);
+
         holder.name.setText(in.getChipName());
         holder.function.setText(in.getAction());
         // set the name to the text;

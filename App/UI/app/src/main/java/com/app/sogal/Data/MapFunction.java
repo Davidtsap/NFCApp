@@ -1,13 +1,11 @@
 package com.app.sogal.Data;
 
-import android.app.AlarmManager;
-
 import com.app.sogal.MoreInfoForAction.*;
 import com.app.sogal.OnlyAppUserAction.CallToPhone;
 import com.app.sogal.OnlyAppUserAction.GlobalChip;
 import com.app.sogal.OnlyAppUserAction.NFCAlarmClock;
 import com.app.sogal.OnlyAppUserAction.SendTextMessage;
-import com.app.sogal.OnlyAppUserAction.Timer;
+import com.app.sogal.OnlyAppUserAction.VibrateMode;
 import com.app.sogal.OnlyAppUserAction.URLForwording;
 
 import java.util.HashMap;
@@ -25,7 +23,7 @@ public class MapFunction {
         myMap.put("Send Message", SendTextMessage.class);
         myMap.put("Open Web Page", URLForwording.class);
         myMap.put("Set Alarm Clock", NFCAlarmClock.class);
-        myMap.put("Set Timer", Timer.class);
+        myMap.put("Vibrate Mode", VibrateMode.class);
         return  myMap;
     }
 
@@ -36,7 +34,6 @@ public class MapFunction {
         myMap.put("Send Message", SendTextMessageInfo.class);
         myMap.put("Open Web Page", URLInfo.class);
         myMap.put("Set Alarm Clock", NFCAlarmClockInfo.class);
-        myMap.put("Set Timer", TimerInfo.class);
 
         return myMap;
     }

@@ -115,6 +115,7 @@ public class ReadNfcTag extends Activity {
         setIntent(intent);
         readFromIntent(intent);
         Chip chip  = null;
+        Toast.makeText(context, "chip scanned", Toast.LENGTH_LONG).show();
         chip = server.getActionByID(nfcMessege);
 
         try {
