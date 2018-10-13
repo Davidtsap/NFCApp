@@ -49,15 +49,29 @@
 
     <TextView
         android:id="@+id/tvAbout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World,\n\nWe are Smart Chip :)\nIn a growing world every second counts.\nThat's why we have developed an app that\nwill give you some seconds back.\nNow you can execute tasks on your mobile\nphone with an easy swipe.\nWe are very proud to be using this cuttin\nedge NFC technology, and looking
-forword to improve the actions that can be\nexecuted on your mobile.\n\nHere's to the Future !
+        android:layout_width="316dp"
+        android:layout_height="265dp"
+        android:text="Hello World,\n\nWe are Smart Chip :)\nIn a growing world every second counts.\nThat's why we have developed an app that\nwill give you some seconds back.\nNow you can execute tasks on your mobile\nphone with an easy swipe.\nWe are very proud to be using this cuttin\nedge NFC technology, and looking\nforword to improve the actions that\ncan be executed on your mobile.\n\nHere's to the Future !
 "
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/guideline4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.905" />
+        app:layout_constraintVertical_bias="0.887" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp" />
 </android.support.constraint.ConstraintLayout>
