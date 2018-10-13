@@ -46,7 +46,7 @@ public class ResetPasswordActivity extends AppCompatActivity implements View.OnC
         {
 
             try {
-                server.changePass(newPass.getText().toString(),oldPass.getText().toString());
+                server.changePass(newPass.getText().toString(),oldPass.getText().toString(),MainActivity.user.getToken());
             } catch (Exception e) {
                 //Toast.makeText(this,)
             }

@@ -104,7 +104,7 @@ public class ReadNfcTag extends Activity {
         } catch (UnsupportedEncodingException e) {
             Log.e("UnsupportedEncoding", e.toString());
         }
-        Toast.makeText(this, text, Toast.LENGTH_LONG).show();
+        //Toast.makeText(this, text, Toast.LENGTH_LONG).show();
         nfcMessege = text;
 
     }
@@ -116,7 +116,6 @@ public class ReadNfcTag extends Activity {
         readFromIntent(intent);
         Chip chip  = null;
         chip = server.getActionByID(nfcMessege);
-        Toast.makeText(context, nfcMessege, Toast.LENGTH_LONG).show();
 
         try {
             Class classChip = MapInternalAction.get(chip.getAction());
@@ -127,7 +126,9 @@ public class ReadNfcTag extends Activity {
             startActivity(actionIntent);
             finish();
         } catch (Exception e) {
-            e.printStackTrace();
+            //e.printStackTrace();
+            Toast.makeText(context, "Could not read chip,check if the chip excite ore re-scan it. ", Toast.LENGTH_LONG).show();
+            finish();
         }
         if (NfcAdapter.ACTION_TAG_DISCOVERED.equals(intent.getAction())) {
             myTag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);

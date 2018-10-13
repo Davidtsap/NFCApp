@@ -123,7 +123,9 @@ public class EditChip extends AppCompatActivity implements View.OnClickListener,
     private void showMoreInfo(String function) {
         if(!function.equalsIgnoreCase("none")) {
             Intent intent = new Intent(getApplicationContext(), MapFunction.MapInfo.get(function));
-            intent.putStringArrayListExtra("additionalValue",(ArrayList)additionalValue);
+            if(function.equalsIgnoreCase(chip.getAction())) {
+                intent.putStringArrayListExtra("additionalValue", (ArrayList) additionalValue);
+            }
             startActivityForResult(intent, 0);
         }
     }

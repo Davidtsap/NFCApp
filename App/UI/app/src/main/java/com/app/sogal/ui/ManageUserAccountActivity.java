@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.app.sogal.Data.User;
+import com.app.sogal.Logic.ServletApi;
 import com.app.sogal.R;
 
 public class ManageUserAccountActivity extends AppCompatActivity implements View.OnClickListener {
@@ -38,6 +39,7 @@ public class ManageUserAccountActivity extends AppCompatActivity implements View
     Button btnPhoneInfo;
     Button btnImageInfo;
 
+    ServletApi server = new ServletApi();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,6 +87,13 @@ public class ManageUserAccountActivity extends AppCompatActivity implements View
     @Override
     public void onClick(View v) {
         if (v == btnSaveChanges) {
+            User newUser = new User();
+            newUser.setPhone(edtPhone2.getText().toString());
+            newUser.setEmail(edtEmail2.getText().toString());
+            newUser.setName(edtUserName2.getText().toString());
+            newUser.setToken(user.getToken());
+            User user = server.updateUserDetails(newUser);
+            MainActivity.user = user;
             startActivity(new Intent(getApplicationContext(), MainActivity.class));
         }
         if (v == btnHome) {
