@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.app.sogal.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class SendTextMessageInfo  extends Activity {
 
@@ -63,6 +64,12 @@ public class SendTextMessageInfo  extends Activity {
                 finish();
             }
         });
+
+        if(getIntent().hasExtra("additionalValue")){
+            List<String> temp1list =(List <String>) getIntent().getSerializableExtra("additionalValue");
+            phoneNumber.setText(temp1list.get(0));
+            message.setText(temp1list.get(1));
+        }
     }
 
     public void onActivityResult(int reqCode, int resultCode, Intent data) {

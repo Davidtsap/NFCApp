@@ -65,6 +65,11 @@ public class CallToPhoneInfo extends Activity implements MoreInfo{
                 finish();
             }
         });
+
+        if(getIntent().hasExtra("additionalValue")){
+            List <String> temp1list =(List <String>) getIntent().getSerializableExtra("additionalValue");
+            phoneNumber.setText(temp1list.get(0));
+        }
     }
 
     public void onActivityResult(int reqCode, int resultCode, Intent data) {

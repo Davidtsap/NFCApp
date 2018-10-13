@@ -10,10 +10,12 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 import com.app.sogal.Data.Chip;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class ServletApi {
@@ -36,19 +38,19 @@ public class ServletApi {
 //        }
 //    }
 
-    public User addNewUser(User newUser , String password) throws Exception{
+    public String addNewUser(User newUser , String password) throws Exception{
         postRequst = new PostRequest();
         ServerAnswer answer;
         Gson gson = new Gson();
-        User user = null;
+        String token = null;
         try {
             JsonObject innerObject = gson.toJsonTree(newUser).getAsJsonObject();
             innerObject.addProperty("password" , password);
-            answer = postRequst.execute("users" ,innerObject.toString(), MainActivity.user.getToken()).get();
+            answer = postRequst.execute("users" ,innerObject.toString()).get();
 
             if(answer!=null){
                 if(answer.getResponseCode() == 200) {
-                    user = gson.fromJson(answer.getMessage(), User.class);
+                    token = answer.getToken();
                 }
                 else if(answer.getResponseCode() == 400){
                     throw new Exception(answer.getMessage());
@@ -59,7 +61,7 @@ public class ServletApi {
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
-        return user;
+        return token;
     }
 
     public String userLogin(String email , String password) throws Exception{
@@ -105,19 +107,19 @@ public class ServletApi {
         return newChip;
     }
 
-    public String deleteUserChip(Chip chip) {
+    public String deleteUserChip(Chip chip , String token) {
         String returnMsg;
-        String jsonChip = null;
+        ServerAnswer jsonChip = null;
         deleteRequest= new DeleteRequest();
         Gson gson =new Gson();
         try {
-            jsonChip = GetRequest.execute("chips/" + chip.getSerialNumber()).get();
-            chip = gson.fromJson(jsonChip,Chip.class);
+            jsonChip = deleteRequest.execute("chips/" + chip.getSerialNumber() ,token ).get();
+            chip = gson.fromJson(jsonChip.getMessage(),Chip.class);
             returnMsg = "success";
         } catch (InterruptedException e) {
-            returnMsg = jsonChip;
+            returnMsg = jsonChip.getMessage();
         } catch (ExecutionException e) {
-            returnMsg = jsonChip;
+            returnMsg = jsonChip.getMessage();
         }
         return returnMsg;
 
@@ -133,7 +135,11 @@ public class ServletApi {
             JsonObject innerObject = new JsonObject();
             innerObject.addProperty("name", chip.getChipName());
             innerObject.addProperty("action", chip.getAction());
-            innerObject.addProperty("options", gson.toJson(chip.getAdditionalValues()));
+            JsonArray list = new JsonArray();
+            for(String value : chip.getAdditionalValues()) {
+                list.add(value);
+            }
+            innerObject.add("options", list);
             String chipString = gson.toJson(innerObject);
             answer = putRequest.execute("chips/" + chip.getSerialNumber() ,chipString , MainActivity.user.getToken()).get();
             if(answer!=null){
@@ -206,5 +212,29 @@ public class ServletApi {
     }
 
 
-
+    public void sendContactUsEmail(String subject, String body) throws Exception {
+        postRequst = new PostRequest();
+        ServerAnswer answer;
+        Gson gson = new Gson();
+        String token = null;
+        try {
+            JsonObject innerObject = new JsonObject();
+            innerObject.addProperty("subject",subject);
+            innerObject.addProperty("body" , body);
+            answer = postRequst.execute("email" ,innerObject.toString()).get();
+            if(answer!=null){
+                if(answer.getResponseCode() == 200) {
+                    token = answer.getToken();
+                }
+                else if(answer.getResponseCode() == 400){
+                    throw new Exception(answer.getMessage());
+                }
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+        //return token;
+    }
 }

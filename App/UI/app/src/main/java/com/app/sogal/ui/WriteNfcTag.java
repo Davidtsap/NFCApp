@@ -144,6 +144,7 @@ public class WriteNfcTag extends AppCompatActivity {
             } else {
                 write(scanOnChip, myTag);
                 Toast.makeText(context, WRITE_SUCCESS, Toast.LENGTH_LONG).show();
+                startActivity(new Intent(getApplicationContext(),ManageUserChips.class));
               //  server.addUserNewChip(chip);
             }
         } catch (IOException e) {

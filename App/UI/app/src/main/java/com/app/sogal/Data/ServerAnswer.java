@@ -3,6 +3,7 @@ package com.app.sogal.Data;
 public class ServerAnswer {
     int responseCode;
     String message;
+    String token;
 
     public ServerAnswer(int responseCode, String message) {
         this.responseCode = responseCode;
@@ -10,6 +11,14 @@ public class ServerAnswer {
     }
 
     public ServerAnswer() {
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 
     public int getResponseCode() {

@@ -14,6 +14,8 @@ import android.widget.TextView;
 import com.app.sogal.Data.Chip;
 import com.app.sogal.R;
 import com.app.sogal.ui.EditChip;
+import com.app.sogal.ui.MainActivity;
+import com.app.sogal.ui.ManageUserChips;
 import com.google.gson.Gson;
 
 import java.time.Instant;
@@ -60,7 +62,8 @@ public class ChipAdapter  extends ArrayAdapter {
                 @Override
                 public void onClick(View view) {
                     Chip in = (Chip)chipList.get(pos);
-                    server.deleteUserChip(in);
+                    server.deleteUserChip(in, MainActivity.user.getToken());
+                    context.startActivity(new Intent(context.getApplicationContext(), ManageUserChips.class));
                 }
             });
 // initialize textview
