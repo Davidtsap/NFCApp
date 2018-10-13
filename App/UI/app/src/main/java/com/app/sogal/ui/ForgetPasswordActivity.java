@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.app.sogal.Logic.ServletApi;
 import com.app.sogal.R;
@@ -29,7 +30,12 @@ public class ForgetPasswordActivity extends AppCompatActivity implements View.On
         {
             if(edEmail.getText().toString() != null && !edEmail.getText().toString().isEmpty())
             {
-                server.resetAppPass(edEmail.getText().toString());
+                boolean success =server.resetAppPass(edEmail.getText().toString());
+                if(success)
+                    Toast.makeText(this,"password send to email", Toast.LENGTH_LONG).show();
+                else{
+                    Toast.makeText(this,"filed to send email,check you email", Toast.LENGTH_LONG).show();
+                }
             }
         }
     }

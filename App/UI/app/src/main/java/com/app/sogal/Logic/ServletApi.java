@@ -208,7 +208,33 @@ public class ServletApi {
 
     public User updateUserDetails(User ID){
 
-        return null;
+        putRequest = new PutRequest();
+        ServerAnswer answer;
+        Gson gson = new Gson();
+        User user= null;
+        try {
+            JsonObject innerObject = new JsonObject();
+
+            innerObject.addProperty("name",ID.getName());
+            innerObject.addProperty("email" , ID.getEmail());
+            innerObject.addProperty("phone" , ID.getPhone());
+            answer = putRequest.execute("users/me" ,innerObject.toString(),ID.getToken()).get();
+            if(answer!=null){
+                if(answer.getResponseCode() == 200) {
+                    String userstr = answer.getMessage();
+                    user = gson.fromJson(userstr,User.class);
+                    user.setToken(ID.getToken());
+                }
+                else if(answer.getResponseCode() == 400){
+                   // throw new Exception("Failed to change password");
+                }
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+        return user;
     }
 
 
@@ -238,20 +264,41 @@ public class ServletApi {
         //return token;
     }
 
-    public void resetAppPass(String email) {
-
-    }
-
-    public void changePass(String newPass, String oldPass) throws Exception{
+    public boolean resetAppPass(String email) {
         postRequst = new PostRequest();
         ServerAnswer answer;
         Gson gson = new Gson();
         String token = null;
+        boolean isSucceed = false;
+        try {
+            JsonObject innerObject = new JsonObject();
+            innerObject.addProperty("email",email);
+            answer = postRequst.execute("emails/password" ,innerObject.toString()).get();
+            if(answer!=null){
+                if(answer.getResponseCode() == 200) {
+                    isSucceed =  true;
+                }
+                else if(answer.getResponseCode() == 400){
+                    isSucceed = false;
+                }
+            }
+        } catch (InterruptedException e) {
+            //e.printStackTrace();
+        } catch (ExecutionException e) {
+            //e.printStackTrace();
+        }
+        return isSucceed;
+    }
+
+    public void changePass(String newPass, String oldPass,String token) throws Exception{
+        putRequest = new PutRequest();
+        ServerAnswer answer;
+        Gson gson = new Gson();
         try {
             JsonObject innerObject = new JsonObject();
             innerObject.addProperty("oldPassword",oldPass);
             innerObject.addProperty("newPassword" , newPass);
-            answer = putRequest.execute("auth/me" ,innerObject.toString()).get();
+            answer = putRequest.execute("auth/me" ,innerObject.toString(),token).get();
             if(answer!=null){
                 if(answer.getResponseCode() == 200) {
                     token = answer.getToken();

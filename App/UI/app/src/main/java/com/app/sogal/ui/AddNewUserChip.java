@@ -56,7 +56,10 @@ public class AddNewUserChip extends AppCompatActivity implements View.OnClickLis
         tvUserName.setText("Hello "+ MainActivity.user.getName());
 
         ChipName = (EditText) findViewById(R.id.ChipName);
-
+        if(getIntent().hasExtra("chipType")){
+            chipType = getIntent().getStringExtra("chipType");
+            System.out.println(chipType);
+        }
         spinner = (Spinner) findViewById(R.id.spinner);
         ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, getListOfFunctions());
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -65,16 +68,16 @@ public class AddNewUserChip extends AppCompatActivity implements View.OnClickLis
 
         btnFinish = (Button)findViewById(R.id.btnFinish);
         btnFinish.setOnClickListener(this);
-        if(getIntent().hasExtra("chipType")){
-            chipType = getIntent().getStringExtra("chipType");
-            System.out.println(chipType);
-        }
+
     }
 
     private List<String> getListOfFunctions() {
         ArrayList<String> list =  new ArrayList<String>();
         list.add("none");
-        list.addAll(MapFunction.MapInfo.keySet());
+        if(chipType.equalsIgnoreCase("Everyone"))
+            list.addAll(MapFunction.MapGlobalString.keySet());
+        else
+            list.addAll(MapFunction.MapInternalAction.keySet());
         return list;
     }
 
@@ -134,8 +137,11 @@ public class AddNewUserChip extends AppCompatActivity implements View.OnClickLis
         chip.setAction(function);
         chip.setChipName(ChipName.getText().toString());
         chip.setAdditionalValues(additionalValue);
+        if(chipType.equalsIgnoreCase("Everyone"))
+            chip.setIsGlobal(true);
+        else
+            chip.setIsGlobal(false);
         return chip;
-
     }
 
     @Override

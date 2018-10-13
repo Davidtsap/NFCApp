@@ -75,9 +75,9 @@ public class WriteNfcTag extends AppCompatActivity {
     }
 
     private void initMap() {
-        myMap.put("CallToPhone", "tel:");
-        myMap.put("SendTextMessage", "sms:");
-        myMap.put("URLForwarding","");
+        myMap.put("Call Someone", "tel:");
+        myMap.put("Send Message", "sms:");
+        myMap.put("Open Web Page","");
     }
 
     /******************************************************************************

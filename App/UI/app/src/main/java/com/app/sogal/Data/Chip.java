@@ -6,9 +6,18 @@ public class Chip {
     String _id;
     String action;
     String name;
+    boolean isGlobal;
     List<String> options;
 
     public Chip() {
+    }
+
+    public boolean isGlobal() {
+        return isGlobal;
+    }
+
+    public void setIsGlobal(boolean global) {
+        isGlobal = global;
     }
 
     public List<String> getAdditionalValues() {
