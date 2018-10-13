@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.app.sogal.R;
 
@@ -30,16 +31,22 @@ public class URLInfo  extends Activity {
             @Override
             public void onClick(View view) {
                 if (URL.getText().toString() != null && !URL.getText().toString().isEmpty()) {
-                    String url  = URL.getText().toString();
-                    if (!url.startsWith("http://") && !url.startsWith("https://"))
-                    {url = "http://" + url;}
-                    additionalValue.add(url);
+                    if(URL.getText().toString().startsWith("www.") || URL.getText().toString().startsWith("http://")) {
+                        String url = URL.getText().toString();
+                        if (!url.startsWith("http://") && !url.startsWith("https://")) {
+                            url = "http://" + url;
+                        }
+                        additionalValue.add(url);
                         Intent intent = new Intent();
                         Bundle bundle = new Bundle();
                         bundle.putStringArrayList("additionalValue", additionalValue);
                         intent.putExtras(bundle);
                         setResult(Activity.RESULT_OK, intent);
-                    finish();
+                        finish();
+                    }
+                    else{
+                        Toast.makeText(view.getContext(), "the url have to start with 'www.' or 'http://' ", Toast.LENGTH_LONG).show();
+                    }
                 } else {
 
                 }

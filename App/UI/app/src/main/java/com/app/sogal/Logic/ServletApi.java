@@ -237,4 +237,34 @@ public class ServletApi {
         }
         //return token;
     }
+
+    public void resetAppPass(String email) {
+
+    }
+
+    public void changePass(String newPass, String oldPass) throws Exception{
+        postRequst = new PostRequest();
+        ServerAnswer answer;
+        Gson gson = new Gson();
+        String token = null;
+        try {
+            JsonObject innerObject = new JsonObject();
+            innerObject.addProperty("oldPassword",oldPass);
+            innerObject.addProperty("newPassword" , newPass);
+            answer = putRequest.execute("auth/me" ,innerObject.toString()).get();
+            if(answer!=null){
+                if(answer.getResponseCode() == 200) {
+                    token = answer.getToken();
+                }
+                else if(answer.getResponseCode() == 400){
+                    throw new Exception("Failed to change password");
+                }
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+
+    }
 }

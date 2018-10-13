@@ -1,9 +1,13 @@
 package com.app.sogal.Data;
 
+import android.app.AlarmManager;
+
 import com.app.sogal.MoreInfoForAction.*;
 import com.app.sogal.OnlyAppUserAction.CallToPhone;
 import com.app.sogal.OnlyAppUserAction.GlobalChip;
+import com.app.sogal.OnlyAppUserAction.NFCAlarmClock;
 import com.app.sogal.OnlyAppUserAction.SendTextMessage;
+import com.app.sogal.OnlyAppUserAction.Timer;
 import com.app.sogal.OnlyAppUserAction.URLForwording;
 
 import java.util.HashMap;
@@ -17,26 +21,33 @@ public class MapFunction {
 
     private static Map<String,Class> createInternalMap() {
         Map<String,Class> myMap = new HashMap ();
-        myMap.put("CallToPhone", CallToPhone.class);
-        myMap.put("SendTextMessage", SendTextMessage.class);
-        myMap.put("URLForwarding", URLForwording.class);
+        myMap.put("Call Someone", CallToPhone.class);
+        myMap.put("Send Message", SendTextMessage.class);
+        myMap.put("Open Web Page", URLForwording.class);
+        myMap.put("Set Alarm Clock", NFCAlarmClock.class);
+        myMap.put("Set Timer", Timer.class);
         return  myMap;
     }
 
     private static Map<String, Class> createInfoMap()
     {
         Map<String,Class> myMap = new HashMap<String,Class>();
-        myMap.put("CallToPhone", CallToPhoneInfo.class);
-        myMap.put("SendTextMessage", SendTextMessageInfo.class);
-        myMap.put("URLForwarding", URLInfo.class);
+        myMap.put("Call Someone", CallToPhoneInfo.class);
+        myMap.put("Send Message", SendTextMessageInfo.class);
+        myMap.put("Open Web Page", URLInfo.class);
+        myMap.put("Set Alarm Clock", NFCAlarmClockInfo.class);
+        myMap.put("Set Timer", TimerInfo.class);
+
         return myMap;
     }
 
     private static Map<String,Class<? extends GlobalChip>> createMap(){
         Map<String,Class<? extends GlobalChip>> myMap = new HashMap ();
-        myMap.put("CallToPhone", CallToPhone.class);
-        myMap.put("SendTextMessage", SendTextMessage.class);
-        myMap.put("URLForwarding", URLForwording.class);
+        myMap.put("Call Someone", CallToPhone.class);
+        myMap.put("Send Message", SendTextMessage.class);
+        myMap.put("Open Web Page", URLForwording.class);
+
+
         return myMap;
     }
 }
