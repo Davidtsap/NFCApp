@@ -10,10 +10,10 @@
 
     <TextView
         android:id="@+id/morePhoneInfo"
-        android:layout_width="377dp"
+        android:layout_width="353dp"
         android:layout_height="31dp"
         android:layout_marginTop="10dp"
-        android:text="Choose from your contact list or insert a number:"
+        android:text="     Choose from your contact list or insert a number:"
         android:textColor="@android:color/holo_green_dark"
         android:textSize="14sp"
         android:textStyle="bold"
