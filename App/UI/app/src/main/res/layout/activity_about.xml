@@ -46,4 +46,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tvAbout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World,\n\nWe are Smart Chip :)\nIn a growing world every second counts.\nThat's why we have developed an app that\nwill give you some seconds back.\nNow you can execute tasks on your mobile\nphone with an easy swipe.\nWe are very proud to be using this cuttin\nedge NFC technology, and looking
+forword to improve the actions that can be\nexecuted on your mobile.\n\nHere's to the Future !
+"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.905" />
 </android.support.constraint.ConstraintLayout>
